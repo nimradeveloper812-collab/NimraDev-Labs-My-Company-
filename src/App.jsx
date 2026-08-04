@@ -12,7 +12,7 @@ import Contact from './pages/Contact';
 
 export default function App() {
   return (
-    <div className="flex flex-col min-h-screen bg-slate-950 text-slate-100 font-body selection:bg-brand-500 selection:text-white relative">
+    <div className="flex flex-col min-h-screen bg-[#F8F9FC] text-[#0D0D14] font-inter selection:bg-[#6C3FFC] selection:text-white relative">
       <ScrollToTop />
       <Navbar />
       

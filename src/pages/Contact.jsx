@@ -1,90 +1,91 @@
 import React from 'react';
-import { FiMail, FiMapPin, FiPhone, FiClock, FiMessageCircle, FiGlobe } from 'react-icons/fi';
+import { Mail, MapPin, Phone, Clock, MessageSquare, ShieldCheck, Lock } from 'lucide-react';
 import ContactForm from '../components/widgets/ContactForm';
 import FAQAccordion from '../components/widgets/FAQAccordion';
 
 export default function Contact() {
   return (
-    <div className="space-y-24 sm:space-y-32 pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div className="space-y-24 sm:space-y-32 pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-inter bg-[#F8F9FC] text-[#0D0D14]">
       
       {/* Header */}
       <section className="text-center space-y-6 max-w-3xl mx-auto">
-        <span className="text-brand-400 text-xs font-semibold uppercase tracking-wider bg-brand-500/10 px-3.5 py-1.5 rounded-full border border-brand-500/30">
-          Direct Technical Inquiries
-        </span>
-        <h1 className="font-heading text-4xl sm:text-6xl font-extrabold text-white tracking-tight">
-          Let’s Build Something <span className="brand-gradient-text">Exceptional Together</span>
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#6C3FFC]/10 border border-[#6C3FFC]/30 text-[#6C3FFC] text-xs font-semibold uppercase tracking-wider font-mono">
+          <Lock className="w-3.5 h-3.5" />
+          <span>Direct Enterprise Inquiries</span>
+        </div>
+        <h1 className="font-sora text-4xl sm:text-6xl font-extrabold text-[#0D0D14] tracking-tight">
+          Let’s Build Something <span className="brand-text-gradient">Exceptional Together</span>
         </h1>
-        <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-          Whether you need a full web application build, custom AI automation, or website redesign, our lead engineers are ready to assist.
+        <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+          Whether you require Web Development, E-Commerce Development, AI Solutions & Automation, or Custom Software, our principal architects are ready to review your brief.
         </p>
       </section>
 
-      {/* Main Grid: Form + Info */}
+      {/* Main Grid: Form + Info Sidebar */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         
         {/* Contact Info Sidebar */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="glass-card rounded-3xl p-8 border border-slate-800 space-y-6">
-            <h3 className="font-heading font-bold text-2xl text-white">Direct Communication</h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              We respond to all technical and commercial inquiries within 12 hours.
+          <div className="bg-white rounded-3xl p-8 border border-[#6C3FFC]/20 space-y-6 shadow-purple-glow text-[#0D0D14]">
+            <h3 className="font-sora font-bold text-2xl text-[#0D0D14]">Direct Communication</h3>
+            <p className="text-slate-600 text-sm leading-relaxed font-inter">
+              We respond to all technical specifications and project briefs within 12 business hours.
             </p>
 
             <div className="space-y-4 pt-2">
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-slate-900/80 border border-slate-800">
-                <div className="w-10 h-10 rounded-lg bg-brand-600/20 border border-brand-500/30 flex items-center justify-center text-brand-400 shrink-0">
-                  <FiMail className="w-5 h-5" />
+              <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#F8F9FC] border border-slate-200">
+                <div className="w-10 h-10 rounded-xl bg-purple-gradient flex items-center justify-center text-white shrink-0 shadow-purple-glow">
+                  <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 uppercase font-semibold">Email Us</p>
-                  <p className="font-heading font-medium text-white text-sm">hello@nimradevlabs.com</p>
+                  <p className="text-xs text-slate-500 font-mono uppercase font-semibold">Email Us</p>
+                  <p className="font-sora font-semibold text-[#0D0D14] text-sm">hello@nimradevlabs.com</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-slate-900/80 border border-slate-800">
-                <div className="w-10 h-10 rounded-lg bg-sky-600/20 border border-sky-500/30 flex items-center justify-center text-sky-400 shrink-0">
-                  <FiPhone className="w-5 h-5" />
+              <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#F8F9FC] border border-slate-200">
+                <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-[#6C3FFC] shrink-0 shadow-sm">
+                  <Phone className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 uppercase font-semibold">Phone & WhatsApp</p>
-                  <p className="font-heading font-medium text-white text-sm">+92 (300) 123-4567</p>
+                  <p className="text-xs text-slate-500 font-mono uppercase font-semibold">Phone & WhatsApp</p>
+                  <p className="font-sora font-semibold text-[#0D0D14] text-sm">+92 (300) 123-4567</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-slate-900/80 border border-slate-800">
-                <div className="w-10 h-10 rounded-lg bg-emerald-600/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
-                  <FiMapPin className="w-5 h-5" />
+              <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#F8F9FC] border border-slate-200">
+                <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-[#6C3FFC] shrink-0 shadow-sm">
+                  <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 uppercase font-semibold">Location</p>
-                  <p className="font-heading font-medium text-white text-sm">Lahore / Islamabad, Pakistan</p>
-                  <p className="text-[11px] text-slate-400">Serving Clients Globally</p>
+                  <p className="text-xs text-slate-500 font-mono uppercase font-semibold">Global HQ & Remote Delivery</p>
+                  <p className="font-sora font-semibold text-[#0D0D14] text-sm">Lahore / Islamabad · Pakistan</p>
+                  <p className="text-[11px] font-mono text-[#6C3FFC]">Serving Fortune 500 & Startups Globally</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-4 rounded-xl bg-slate-900/80 border border-slate-800">
-                <div className="w-10 h-10 rounded-lg bg-purple-600/20 border border-purple-500/30 flex items-center justify-center text-purple-400 shrink-0">
-                  <FiClock className="w-5 h-5" />
+              <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#F8F9FC] border border-slate-200">
+                <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-[#6C3FFC] shrink-0 shadow-sm">
+                  <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 uppercase font-semibold">Operating Hours</p>
-                  <p className="font-heading font-medium text-white text-sm">Mon - Sat: 9:00 AM - 9:00 PM PKT</p>
+                  <p className="text-xs text-slate-500 font-mono uppercase font-semibold">Operating Hours</p>
+                  <p className="font-sora font-semibold text-[#0D0D14] text-sm">Mon - Sat: 9:00 AM - 9:00 PM PKT (Global Coverage)</p>
                 </div>
               </div>
             </div>
 
             {/* Instant WhatsApp Callout */}
-            <div className="p-4 rounded-2xl bg-emerald-950/40 border border-emerald-500/30 flex items-center justify-between gap-4">
+            <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-between gap-4">
               <div className="flex items-center gap-3">
-                <FiMessageCircle className="w-6 h-6 text-emerald-400" />
-                <span className="text-xs font-semibold text-emerald-300">Need Instant Chat Response?</span>
+                <MessageSquare className="w-5 h-5 text-emerald-600" />
+                <span className="text-xs font-semibold text-emerald-900">Need Instant Chat Response?</span>
               </div>
               <a
                 href="https://wa.me/923001234567"
                 target="_blank"
                 rel="noreferrer"
-                className="px-3.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-heading font-bold text-xs transition-colors shrink-0"
+                className="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-sora font-bold text-xs transition-colors shrink-0 shadow-sm"
               >
                 WhatsApp Us
               </a>
@@ -102,8 +103,8 @@ export default function Contact() {
       {/* FAQ Section */}
       <section className="space-y-10">
         <div className="text-center space-y-3 max-w-2xl mx-auto">
-          <h2 className="font-heading text-3xl font-bold text-white">Project Inquiry FAQs</h2>
-          <p className="text-slate-400 text-sm">Common questions answered for instant clarity.</p>
+          <h2 className="font-sora text-3xl font-bold text-[#0D0D14]">Project Inquiry FAQs</h2>
+          <p className="text-slate-600 text-sm font-inter">Instant answers to common client questions.</p>
         </div>
         <FAQAccordion />
       </section>

@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { FiSend, FiCheckCircle, FiUser, FiMail, FiMessageSquare, FiBriefcase } from 'react-icons/fi';
+import { Send, CheckCircle2, User, Mail, Building, Sparkles } from 'lucide-react';
 
 export default function ContactForm() {
   const location = useLocation();
-  const preselected = location.state?.selectedService || 'Business Website Development';
+  const preselected = location.state?.selectedService || 'Web Development';
 
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
     service: preselected,
-    budget: '$1,000 - $3,000',
-    message: location.state?.estimatedPrice ? `Estimated Project Investment: ~$${location.state.estimatedPrice}` : '',
+    budget: '$5,000 - $15,000',
+    message: location.state?.estimatedPrice ? `Estimated Scope Investment: ~$${location.state.estimatedPrice}` : '',
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -28,62 +28,62 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="glass-card rounded-3xl p-6 sm:p-10 border border-slate-800 relative">
+    <div className="bg-white rounded-3xl p-6 sm:p-10 border border-[#6C3FFC]/20 relative shadow-purple-glow text-[#0D0D14]">
       {submitted ? (
         <div className="py-12 text-center space-y-4">
-          <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center text-emerald-400 mx-auto shadow-glow-sm">
-            <FiCheckCircle className="w-8 h-8" />
+          <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-600 mx-auto shadow-sm">
+            <CheckCircle2 className="w-8 h-8" />
           </div>
-          <h3 className="font-heading text-2xl font-bold text-white">Inquiry Received!</h3>
-          <p className="text-slate-400 text-sm max-w-md mx-auto">
-            Thank you for reaching out to NimraDev Labs. Our engineering leads will review your inquiry and respond within 12 hours.
+          <h3 className="font-sora text-2xl font-bold text-[#0D0D14]">Project Brief Transmitted!</h3>
+          <p className="text-slate-600 text-sm max-w-md mx-auto font-inter">
+            Thank you for connecting with NimraDev Labs. Our Senior Engineering Architect will review your technical specifications and respond within 12 business hours.
           </p>
           <button
             onClick={() => {
               setSubmitted(false);
-              setFormData({ name: '', email: '', company: '', service: 'Business Website Development', budget: '$1,000 - $3,000', message: '' });
+              setFormData({ name: '', email: '', company: '', service: 'Web Development', budget: '$5,000 - $15,000', message: '' });
             }}
-            className="mt-4 px-6 py-2.5 rounded-xl bg-slate-800 text-slate-200 text-xs font-semibold hover:bg-slate-700 transition-colors"
+            className="mt-4 px-6 py-2.5 rounded-xl bg-[#F8F9FC] border border-slate-200 text-slate-700 text-xs font-mono font-semibold hover:bg-slate-100 transition-colors"
           >
-            Send Another Inquiry
+            Submit Another Request
           </button>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6 font-inter">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             
             {/* Full Name */}
             <div className="space-y-2">
-              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider">
-                Full Name <span className="text-brand-400">*</span>
+              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider font-mono">
+                Full Name <span className="text-[#6C3FFC]">*</span>
               </label>
               <div className="relative">
-                <FiUser className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 w-4 h-4" />
+                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
                 <input
                   type="text"
                   required
-                  placeholder="Ali Khan"
+                  placeholder="Alexander Wright"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 bg-slate-900/80 border border-slate-800 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors"
+                  className="w-full pl-10 pr-4 py-3 bg-[#F8F9FC] border border-slate-200 rounded-xl text-[#0D0D14] placeholder-slate-400 text-sm focus:outline-none focus:border-[#6C3FFC] focus:ring-1 focus:ring-[#6C3FFC] transition-colors"
                 />
               </div>
             </div>
 
             {/* Email */}
             <div className="space-y-2">
-              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider">
-                Work Email <span className="text-brand-400">*</span>
+              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider font-mono">
+                Work Email <span className="text-[#6C3FFC]">*</span>
               </label>
               <div className="relative">
-                <FiMail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 w-4 h-4" />
+                <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
                 <input
                   type="email"
                   required
-                  placeholder="ali@company.com"
+                  placeholder="alexander@company.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 bg-slate-900/80 border border-slate-800 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors"
+                  className="w-full pl-10 pr-4 py-3 bg-[#F8F9FC] border border-slate-200 rounded-xl text-[#0D0D14] placeholder-slate-400 text-sm focus:outline-none focus:border-[#6C3FFC] focus:ring-1 focus:ring-[#6C3FFC] transition-colors"
                 />
               </div>
             </div>
@@ -94,37 +94,35 @@ export default function ContactForm() {
             
             {/* Company */}
             <div className="space-y-2">
-              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider">
+              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider font-mono">
                 Company / Organization
               </label>
               <div className="relative">
-                <FiBriefcase className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 w-4 h-4" />
+                <Building className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
                 <input
                   type="text"
-                  placeholder="TechCorp Ltd."
+                  placeholder="AeroTech Global Corp."
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 bg-slate-900/80 border border-slate-800 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors"
+                  className="w-full pl-10 pr-4 py-3 bg-[#F8F9FC] border border-slate-200 rounded-xl text-[#0D0D14] placeholder-slate-400 text-sm focus:outline-none focus:border-[#6C3FFC] focus:ring-1 focus:ring-[#6C3FFC] transition-colors"
                 />
               </div>
             </div>
 
-            {/* Service Selection */}
+            {/* Service Selection - 4 Core Services */}
             <div className="space-y-2">
-              <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider">
-                Required Service
+              <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider font-mono">
+                Core Service Category
               </label>
               <select
                 value={formData.service}
                 onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                className="w-full px-4 py-3 bg-slate-900/80 border border-slate-800 rounded-xl text-slate-100 text-sm focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors"
+                className="w-full px-4 py-3 bg-[#F8F9FC] border border-slate-200 rounded-xl text-[#0D0D14] text-sm focus:outline-none focus:border-[#6C3FFC] focus:ring-1 focus:ring-[#6C3FFC] transition-colors"
               >
-                <option value="Business Website Development">Business Website Development</option>
-                <option value="Custom Web Applications">Custom Web Applications (SaaS)</option>
-                <option value="AI Automation & AI Integration">AI Automation & AI Integration</option>
-                <option value="Website Redesign">Website Redesign</option>
-                <option value="Website Maintenance">Website Maintenance</option>
-                <option value="Performance Optimization">Performance Optimization</option>
+                <option value="Web Development">Web Development</option>
+                <option value="E-Commerce Development">E-Commerce Development</option>
+                <option value="AI Solutions & Automation">AI Solutions & Automation</option>
+                <option value="Custom Software Development">Custom Software Development</option>
               </select>
             </div>
 
@@ -132,31 +130,29 @@ export default function ContactForm() {
 
           {/* Message */}
           <div className="space-y-2">
-            <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider">
-              Project Details & Goals <span className="text-brand-400">*</span>
+            <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider font-mono">
+              Project Architecture & Requirements <span className="text-[#6C3FFC]">*</span>
             </label>
-            <div className="relative">
-              <textarea
-                required
-                rows={4}
-                placeholder="Tell us about your project, timeline, target audience, or specific requirements..."
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full p-4 bg-slate-900/80 border border-slate-800 rounded-xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors"
-              />
-            </div>
+            <textarea
+              required
+              rows={4}
+              placeholder="Detail your goals, tech stack preferences, target timeline, or integrations..."
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              className="w-full p-4 bg-[#F8F9FC] border border-slate-200 rounded-xl text-[#0D0D14] placeholder-slate-400 text-sm focus:outline-none focus:border-[#6C3FFC] focus:ring-1 focus:ring-[#6C3FFC] transition-colors"
+            />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full flex items-center justify-center gap-2 py-4 px-8 rounded-xl font-heading font-semibold text-sm text-white bg-gradient-to-r from-brand-600 via-brand-500 to-sky-500 hover:from-brand-500 hover:to-sky-400 shadow-glow-sm hover:shadow-glow-md transition-all duration-300 disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-2 py-4 px-8 rounded-xl font-sora font-semibold text-sm text-white bg-purple-gradient hover:opacity-90 shadow-purple-glow transition-all duration-300 disabled:opacity-50"
           >
             {loading ? (
-              <span>Transmitting Inquiry...</span>
+              <span>Transmitting Architecture Brief...</span>
             ) : (
               <>
-                <FiSend className="w-4 h-4" />
+                <Send className="w-4 h-4" />
                 <span>Submit Technical Brief</span>
               </>
             )}
@@ -166,3 +162,4 @@ export default function ContactForm() {
     </div>
   );
 }
+

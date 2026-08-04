@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { HiMenu, HiX } from 'react-icons/hi';
-import { FiArrowRight, FiCode, FiCpu } from 'react-icons/fi';
+import { Menu, X, ArrowRight, Code2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
@@ -19,17 +18,12 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
@@ -38,7 +32,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'glass-panel py-3 shadow-lg shadow-black/20 border-b border-slate-800/80'
+          ? 'bg-white/90 backdrop-blur-md py-3.5 shadow-sm border-b border-[#6C3FFC]/15'
           : 'bg-transparent py-5'
       }`}
     >
@@ -47,37 +41,37 @@ export default function Navbar() {
           
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-brand-500 to-sky-400 flex items-center justify-center text-white shadow-glow-sm group-hover:scale-105 transition-transform duration-300">
-              <FiCode className="w-5 h-5 text-white" />
+            <div className="w-10 h-10 rounded-xl bg-purple-gradient flex items-center justify-center text-white shadow-purple-glow group-hover:scale-105 transition-transform duration-300">
+              <Code2 className="w-5 h-5 text-white" />
             </div>
             <div className="flex flex-col">
-              <span className="font-heading font-bold text-xl text-white tracking-tight leading-tight">
-                NimraDev<span className="text-brand-400">.Labs</span>
+              <span className="font-sora font-extrabold text-xl text-[#0D0D14] tracking-tight leading-tight">
+                NimraDev<span className="text-[#6C3FFC]"> Labs</span>
               </span>
-              <span className="text-[10px] text-slate-400 tracking-wider font-semibold uppercase -mt-0.5">
-                Software & AI Agency
+              <span className="text-[10px] font-mono text-[#6C3FFC] tracking-widest uppercase font-semibold -mt-0.5">
+                Software & AI Engineering
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 bg-slate-900/60 p-1.5 rounded-full border border-slate-800/80 backdrop-blur-md">
+          <nav className="hidden md:flex items-center gap-1 bg-white/90 p-1.5 rounded-full border border-[#6C3FFC]/15 backdrop-blur-md shadow-sm">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
               return (
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 relative ${
+                  className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 relative font-inter ${
                     isActive
-                      ? 'text-white font-semibold'
-                      : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+                      ? 'text-[#6C3FFC] font-semibold'
+                      : 'text-slate-600 hover:text-[#6C3FFC]'
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute inset-0 bg-brand-600/30 border border-brand-500/50 rounded-full"
+                      className="absolute inset-0 bg-[#6C3FFC]/10 border border-[#6C3FFC]/30 rounded-full"
                       transition={{ type: 'spring', duration: 0.5 }}
                     />
                   )}
@@ -87,25 +81,25 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Header Action Button */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Header Action Button (No Theme Toggle) */}
+          <div className="hidden md:flex items-center gap-3">
             <Link
               to="/contact"
-              className="group relative inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-heading font-semibold text-sm text-white bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-400 shadow-glow-sm hover:shadow-glow-md transition-all duration-300 overflow-hidden"
+              className="group relative inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-sora font-semibold text-xs uppercase tracking-wider text-white bg-purple-gradient hover:opacity-90 shadow-purple-glow transition-all duration-300 overflow-hidden"
             >
-              <span>Get in Touch</span>
-              <FiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <span>Book Discovery Call</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          {/* Mobile Hamburger Button */}
+          {/* Mobile Actions */}
           <div className="flex md:hidden items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white focus:outline-none"
+              className="p-2.5 rounded-xl bg-white border border-[#6C3FFC]/20 text-[#0D0D14] hover:text-[#6C3FFC] focus:outline-none shadow-sm"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <HiX className="w-6 h-6" /> : <HiMenu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -119,9 +113,9 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden glass-panel border-b border-slate-800 overflow-hidden"
+            className="md:hidden bg-white border-b border-[#6C3FFC]/15 overflow-hidden shadow-lg"
           >
-            <div className="px-6 py-6 space-y-3">
+            <div className="px-6 py-6 space-y-3 font-inter">
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path;
                 return (
@@ -130,21 +124,21 @@ export default function Navbar() {
                     to={link.path}
                     className={`block px-4 py-3 rounded-xl text-base font-medium transition-all ${
                       isActive
-                        ? 'bg-brand-600/20 border border-brand-500/40 text-brand-300 font-semibold'
-                        : 'text-slate-300 hover:bg-slate-800/60 hover:text-white'
+                        ? 'bg-[#6C3FFC]/10 border border-[#6C3FFC]/30 text-[#6C3FFC] font-semibold'
+                        : 'text-slate-700 hover:bg-slate-50 hover:text-[#6C3FFC]'
                     }`}
                   >
                     {link.name}
                   </Link>
                 );
               })}
-              <div className="pt-4 border-t border-slate-800/80">
+              <div className="pt-4 border-t border-slate-100">
                 <Link
                   to="/contact"
-                  className="flex items-center justify-center gap-2 w-full py-3 px-6 rounded-xl font-heading font-semibold text-center text-white bg-gradient-to-r from-brand-600 to-brand-500 shadow-glow-sm"
+                  className="flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-xl font-sora font-semibold text-center text-white bg-purple-gradient shadow-purple-glow"
                 >
-                  <span>Start Your Project</span>
-                  <FiArrowRight className="w-4 h-4" />
+                  <span>Book Discovery Call</span>
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
