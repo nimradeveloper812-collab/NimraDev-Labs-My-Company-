@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Code2, Mail, MapPin, Phone, Github, Linkedin, Twitter, ArrowRight, CheckCircle2, ShieldCheck, Radio } from 'lucide-react';
+import { Mail, MapPin, Phone, Github, Linkedin, Twitter, ArrowRight, CheckCircle2, ShieldCheck, Radio } from 'lucide-react';
+import LogoMark from '../common/LogoMark';
 
 export default function Footer() {
   const [subscribed, setSubscribed] = useState(false);
@@ -28,9 +29,7 @@ export default function Footer() {
           {/* Brand Col */}
           <div className="lg:col-span-2 space-y-5">
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-purple-gradient flex items-center justify-center text-white shadow-purple-glow">
-                <Code2 className="w-5 h-5 text-white" />
-              </div>
+              <LogoMark className="w-10 h-10" />
               <span className="font-sora font-extrabold text-xl text-[#0D0D14] tracking-tight">
                 NimraDev<span className="text-[#6C3FFC]"> Labs</span>
               </span>
@@ -104,47 +103,56 @@ export default function Footer() {
           {/* Quick Links */}
           <div className="space-y-4">
             <h3 className="font-sora font-semibold text-[#0D0D14] text-base">Navigation</h3>
-            <ul className="space-y-2.5 text-sm text-slate-600 font-inter">
+            <ul className="space-y-2 text-xs text-slate-600 font-inter">
               <li><Link to="/" className="hover:text-[#6C3FFC] transition-colors">Home</Link></li>
               <li><Link to="/about" className="hover:text-[#6C3FFC] transition-colors">About Us</Link></li>
-              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">Services</Link></li>
-              <li><Link to="/portfolio" className="hover:text-[#6C3FFC] transition-colors">Portfolio & Work</Link></li>
-              <li><Link to="/contact" className="hover:text-[#6C3FFC] transition-colors">Contact Us</Link></li>
+              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">All Services</Link></li>
+              <li><a href="/#products" className="hover:text-[#6C3FFC] transition-colors">Ready Products</a></li>
+              <li><Link to="/portfolio" className="hover:text-[#6C3FFC] transition-colors">Portfolio & Case Studies</Link></li>
+              <li><Link to="/contact" className="hover:text-[#6C3FFC] transition-colors">Contact & Inquiries</Link></li>
             </ul>
           </div>
 
-          {/* 4 Core Services */}
+          {/* Core Services */}
           <div className="space-y-4">
-            <h3 className="font-sora font-semibold text-[#0D0D14] text-base">Core Services</h3>
-            <ul className="space-y-2.5 text-sm text-slate-600 font-inter">
+            <h3 className="font-sora font-semibold text-[#0D0D14] text-base">Services</h3>
+            <ul className="space-y-2 text-xs text-slate-600 font-inter">
               <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">Web Development</Link></li>
-              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">E-Commerce Development</Link></li>
+              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">Mobile App Development</Link></li>
+              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">Custom Software & ERP</Link></li>
               <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">AI Solutions & Automation</Link></li>
-              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">Custom Software Development</Link></li>
+              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">E-Commerce Development</Link></li>
+              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">Digital Marketing & SEO</Link></li>
+              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">UI/UX & Graphic Design</Link></li>
             </ul>
           </div>
 
-          {/* Contact Details */}
+          {/* Contact Details & Global Offices */}
           <div className="space-y-4">
-            <h3 className="font-sora font-semibold text-[#0D0D14] text-base">Global HQ</h3>
-            <ul className="space-y-3 text-sm text-slate-600 font-inter">
-              <li className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-[#6C3FFC] mt-1 shrink-0" />
-                <span>hello@nimradevlabs.com</span>
+            <h3 className="font-sora font-semibold text-[#0D0D14] text-base">Direct Contact & Location</h3>
+            <ul className="space-y-2.5 text-xs text-slate-600 font-inter">
+              <li className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-[#6C3FFC] mt-0.5 shrink-0" />
+                <span>Pakistan · Global Remote Engineering</span>
               </li>
-              <li className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-[#6C3FFC] mt-1 shrink-0" />
-                <span>+92 (300) 123-4567</span>
+              <li className="flex items-start gap-2.5">
+                <Mail className="w-4 h-4 text-[#6C3FFC] mt-0.5 shrink-0" />
+                <a href="mailto:nimra.developer.8122005@gmail.com" className="hover:text-[#6C3FFC] break-all">nimra.developer.8122005@gmail.com</a>
               </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#6C3FFC] mt-1 shrink-0" />
-                <span>Lahore / Islamabad · Global Delivery</span>
+              <li className="flex items-start gap-2.5">
+                <Phone className="w-4 h-4 text-[#6C3FFC] mt-0.5 shrink-0" />
+                <a href="tel:+923249590859" className="hover:text-[#6C3FFC]">+92 3249590859</a>
               </li>
               <li className="pt-2">
-                <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-mono">
+                <a
+                  href="https://wa.me/923249590859?text=Hello%20NimraDev%20Labs%2C%20I%20want%20to%20discuss%20a%20project."
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-mono hover:bg-emerald-100 transition-colors"
+                >
                   <Radio className="w-3 h-3 animate-pulse text-emerald-500" />
-                  <span>Systems Operational · 99.99%</span>
-                </div>
+                  <span>WhatsApp: DM Here ↗</span>
+                </a>
               </li>
             </ul>
           </div>

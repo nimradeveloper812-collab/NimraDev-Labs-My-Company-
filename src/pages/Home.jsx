@@ -4,171 +4,223 @@ import { Link } from 'react-router-dom';
 import { 
   Globe, ShoppingCart, Bot, Cpu, ShieldCheck, Zap, 
   CheckCircle2, ArrowRight, Layers, Code2, Users, TrendingUp, 
-  Server, Sparkles, Terminal, Activity, Check, ChevronRight, Lock, Play
+  Server, Sparkles, Terminal, Activity, Check, ChevronRight, Lock, Play,
+  Smartphone, Search, Palette, MessageSquare, ExternalLink
 } from 'lucide-react';
 import InteractiveCodeDemo from '../components/widgets/InteractiveCodeDemo';
 import ProjectEstimator from '../components/widgets/ProjectEstimator';
 import FAQAccordion from '../components/widgets/FAQAccordion';
 import ContactForm from '../components/widgets/ContactForm';
 import ProjectModal from '../components/widgets/ProjectModal';
+import BrandBanner from '../components/widgets/BrandBanner';
+import SoftwareProducts from '../components/widgets/SoftwareProducts';
 
-// 1. TRUSTED COMPANIES LOGOS
+// 1. TECHNOLOGY STACK WE USE
 const TRUSTED_COMPANIES = [
-  { name: 'Vercel', logo: '▲ Vercel' },
-  { name: 'Stripe', logo: 'stripe' },
-  { name: 'Linear', logo: '◈ Linear' },
-  { name: 'Notion', logo: 'N Notion' },
-  { name: 'OpenAI', logo: '✴ OpenAI' },
-  { name: 'Snowflake', logo: '❄ Snowflake' },
-  { name: 'Framer', logo: '❖ Framer' },
-  { name: 'Webflow', logo: 'W Webflow' }
+  { name: 'React', logo: '⚛ React' },
+  { name: 'Next.js', logo: '▲ Next.js' },
+  { name: 'Node.js', logo: '⬢ Node.js' },
+  { name: 'Python', logo: '🐍 Python' },
+  { name: 'Tailwind', logo: '🌊 Tailwind CSS' },
+  { name: 'PostgreSQL', logo: '🐘 PostgreSQL' },
+  { name: 'Docker', logo: '🐳 Docker' },
+  { name: 'TypeScript', logo: '🟦 TypeScript' }
 ];
 
-// 2. CORE SERVICES (STRICTLY THE 4 SERVICES REQUESTED)
+// 2. CORE SERVICES
 const CORE_SERVICES = [
   {
     id: 'web-dev',
     title: 'Web Development',
-    subtitle: 'Professional business websites, landing pages, SaaS websites, and corporate websites.',
+    subtitle: 'Professional business websites, landing pages, web applications, and company portals.',
     icon: Globe,
     badge: 'Core Experience',
     items: [
       'Professional Business Websites',
       'High-Converting Landing Pages',
-      'SaaS Product Marketing Sites',
-      'Enterprise Corporate Websites'
+      'SaaS & Web Applications',
+      'Company & Corporate Portals'
     ],
     tech: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript', 'Framer Motion'],
-    metric: '99.9% Core Web Vitals Score'
+    metric: '99.9% Uptime & Speed'
   },
   {
-    id: 'ecom-dev',
-    title: 'E-Commerce Development',
-    subtitle: 'Modern online stores with secure payments and scalable architecture.',
-    icon: ShoppingCart,
-    badge: 'Scalable Commerce',
+    id: 'mobile-dev',
+    title: 'Mobile App Development',
+    subtitle: 'Cross-platform iOS and Android mobile apps engineered for speed and sleek UX.',
+    icon: Smartphone,
+    badge: 'Cross Platform',
     items: [
-      'Custom Headless Online Stores',
-      'Stripe & Multi-Currency Gateways',
-      'High-Speed Product Search',
-      'Inventory & ERP Synchronization'
+      'iOS & Android Mobile Apps',
+      'Flutter & React Native Architecture',
+      'Push Notification Engines',
+      'App Store & Play Store Publishing'
     ],
-    tech: ['Next.js', 'Shopify Plus API', 'Node.js', 'PostgreSQL', 'Redis'],
-    metric: '+340% Avg Checkout Conversion'
+    tech: ['Flutter', 'React Native', 'Swift', 'Kotlin', 'Firebase'],
+    metric: 'Seamless Cross-Platform'
   },
   {
     id: 'ai-solutions',
     title: 'AI Solutions & Automation',
-    subtitle: 'AI chatbots, AI Assistants, Workflow Automation, OpenAI Integration, and Business Process Automation.',
+    subtitle: 'AI chatbots, AI assistants, workflow automation, and custom OpenAI API integration.',
     icon: Bot,
-    badge: 'Next-Gen AI',
+    badge: 'AI Automation',
     items: [
-      'Enterprise AI Chatbots & Customer Assistants',
-      'Autonomous Workflow Automation Pipelines',
-      'Custom OpenAI & LLM API Integration',
-      'End-to-End Business Process Automation'
+      'AI Chatbots & Virtual Assistants',
+      'Automated Workflow Pipelines',
+      'Custom OpenAI API Integration',
+      'Business Process Automation'
     ],
-    tech: ['Python', 'PyTorch', 'OpenAI GPT-4o', 'LangChain', 'FastAPI'],
-    metric: '85% Manual Task Reduction'
+    tech: ['Python', 'PyTorch', 'OpenAI API', 'LangChain', 'FastAPI'],
+    metric: 'Automated Operations'
   },
   {
     id: 'custom-software',
     title: 'Custom Software Development',
-    subtitle: 'CRM, ERP, Business Dashboards, Management Systems, Booking Platforms, and Custom Business Applications.',
+    subtitle: 'CRM, ERP, business dashboards, management systems, and custom web software.',
     icon: Cpu,
-    badge: 'Enterprise Engineering',
+    badge: 'Custom Systems',
     items: [
-      'Tailored CRM & ERP Solutions',
-      'Real-time Executive Business Dashboards',
-      'Operational Management Systems',
-      'Booking Platforms & Custom Business Apps'
+      'Custom CRM & ERP Solutions',
+      'School & Education Systems',
+      'Retail POS & Inventory Software',
+      'Real-time Management Dashboards'
     ],
     tech: ['TypeScript', 'React', 'Python', 'Docker', 'PostgreSQL'],
-    metric: 'Sub-15ms API Latency'
+    metric: 'High Speed Performance'
+  },
+  {
+    id: 'ecom-dev',
+    title: 'E-Commerce Development',
+    subtitle: 'Modern online stores with secure payment integration and clean catalog management.',
+    icon: ShoppingCart,
+    badge: 'Online Stores',
+    items: [
+      'Custom E-Commerce Stores',
+      'Secure Payment Gateways',
+      'Product Search & Filtering',
+      'Inventory Sync & Admin Desk'
+    ],
+    tech: ['Next.js', 'Shopify API', 'Node.js', 'PostgreSQL', 'Redis'],
+    metric: 'Fast Mobile Checkout'
+  },
+  {
+    id: 'seo-marketing',
+    title: 'Digital Marketing & SEO',
+    subtitle: 'Search engine optimization, keyword strategy, and digital visibility for businesses.',
+    icon: Search,
+    badge: 'Digital Growth',
+    items: [
+      'On-Page & Technical SEO',
+      'Local & Search Ranking Strategy',
+      'Conversion Rate Optimization',
+      'Content Planning & Analysis'
+    ],
+    tech: ['Google Analytics 4', 'Search Console', 'Ahrefs', 'Semrush'],
+    metric: 'Search Visibility'
+  },
+  {
+    id: 'graphics-uiux',
+    title: 'UI/UX & Graphic Design',
+    subtitle: 'Clean brand identities, user interface designs, and visual marketing assets.',
+    icon: Palette,
+    badge: 'Design Systems',
+    items: [
+      'Modern UI/UX Web Layouts',
+      'Mobile App UI Wireframes',
+      'Brand Identity & Logos',
+      'Marketing & Digital Graphics'
+    ],
+    tech: ['Figma', 'Adobe Photoshop', 'Illustrator', 'Design Systems'],
+    metric: '100% Tailored Designs'
   }
 ];
 
 // 3. INDUSTRIES WE SERVE
 const INDUSTRIES = [
-  { title: 'Fintech & Banking', desc: 'Secure payment engines, compliance portals, multi-currency wallets.', icon: ShieldCheck },
-  { title: 'Healthtech & Care', desc: 'HIPAA-compliant platforms, patient portals, telemedicine tools.', icon: Activity },
-  { title: 'E-Commerce & Retail', desc: 'High-throughput stores, automated inventory, omnichannel analytics.', icon: ShoppingCart },
-  { title: 'SaaS & B2B Software', desc: 'Product marketing, client dashboards, subscription management.', icon: Globe },
-  { title: 'Enterprise & Logistics', desc: 'Fleet telemetry, ERP automation, real-time dispatch systems.', icon: Server },
-  { title: 'AI & Data Startups', desc: 'LLM fine-tuning interfaces, vector search databases, AI agents.', icon: Bot }
+  { title: 'Fintech & Payments', desc: 'Secure billing portals, payment gateway integrations, financial dashboards.', icon: ShieldCheck },
+  { title: 'Healthcare & Care', desc: 'Patient booking portals, doctor scheduling, clinical management tools.', icon: Activity },
+  { title: 'E-Commerce & Retail', desc: 'Online shopping stores, automated inventory, POS billing software.', icon: ShoppingCart },
+  { title: 'Education & Schools', desc: 'School ERP systems, student portals, fee collection, attendance management.', icon: Globe },
+  { title: 'Logistics & Transport', desc: 'Vehicle tracking platforms, ride-hailing software, order dispatch desks.', icon: Server },
+  { title: 'AI & Software Startups', desc: 'AI assistants, custom web dashboards, automated background workflows.', icon: Bot }
 ];
 
 // 4. WHY CHOOSE NIMRADEV LABS
 const WHY_CHOOSE_POINTS = [
   {
-    title: 'Silicon Valley Architectural Rigor',
-    desc: 'Zero technical debt. We engineer clean, modular TypeScript & Python backends built for 99.99% reliability.'
+    title: 'Clean Code & Reliable Architecture',
+    desc: 'Zero technical clutter. We write clean, modular, and maintainable TypeScript & Python code built for long-term stability.'
   },
   {
-    title: 'AI-Native Engineering Speed',
-    desc: 'We leverage custom internal AI dev toolchains to ship software up to 3x faster without compromising security.'
+    title: 'Modern Development Speed',
+    desc: 'We use efficient development tools and modern frameworks to deliver projects on schedule with high accuracy.'
   },
   {
-    title: 'Bespoke Handcrafted UI/UX',
-    desc: 'No generic templates. Every pixel, gradient, and glassmorphic card is custom-built for maximum brand prestige.'
+    title: 'Custom & Tailored UI/UX',
+    desc: 'No generic templates. Every layout, visual component, and card is custom-crafted to reflect your company identity.'
   },
   {
-    title: 'Enterprise SOC2 Security Ready',
-    desc: 'Bank-grade encryption, automated vulnerability scanners, and strict data privacy protocols for Fortune 500 trust.'
+    title: 'Secure & Data Protected',
+    desc: 'Standard data encryption, secure authentication, and protected API endpoints to safeguard your business information.'
   }
 ];
 
-// 5. PORTFOLIO CASE STUDIES
+// 5. PORTFOLIO CASE STUDIES (THE 4 SPECIFIC PROJECTS)
 const PORTFOLIO_PROJECTS = [
   {
     id: 1,
-    title: 'NexusAI Enterprise Knowledge Hub',
-    client: 'Nexus Global',
-    category: 'AI Solutions & Automation',
-    description: 'Autonomous document parsing, semantic RAG search, and internal AI assistant serving 20,000 corporate employees.',
-    deliverables: ['Custom LLM Fine-Tuning', 'Enterprise Document Parser', 'Real-time Analytics Dashboard'],
-    technologies: ['React', 'Python', 'FastAPI', 'OpenAI', 'Pinecone'],
-    metric: '85% Faster Research Retrieval'
+    title: 'Quad Healthcare Credentialing Website',
+    client: 'Quad Healthcare',
+    category: 'Web Development',
+    description: 'Medical credentialing & provider onboarding platform built with Next.js, automated background verifications, and compliance reporting.',
+    deliverables: ['Healthcare Credentialing Portal', 'Automated Verification Flow', 'Provider Dashboard'],
+    technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL'],
+    metric: 'Automated Provider Intake',
+    liveUrl: 'https://quadhealthcare.com'
   },
   {
     id: 2,
-    title: 'FinEdge Global Corporate Banking',
-    client: 'FinEdge Inc.',
-    category: 'Custom Software Development',
-    description: 'High-security multi-currency dashboard with automated audit logs, compliance reporting, and real-time transaction feeds.',
-    deliverables: ['Multi-Tenant CRM/ERP Portal', 'Role-Based Access Security', 'WebSocket Live Data Feeds'],
-    technologies: ['React', 'Node.js', 'PostgreSQL', 'Tailwind CSS', 'Docker'],
-    metric: '$1.2B Annual Transaction Volume'
+    title: 'NimraMart – Modern E-Commerce Store',
+    client: 'NimraMart Retail',
+    category: 'E-Commerce Development',
+    description: 'Modern online store with fast product catalog search, secure payment checkout, automated inventory sync, and mobile UX.',
+    deliverables: ['Next.js Storefront', 'Secure Payment Integration', 'Inventory Management'],
+    technologies: ['Next.js', 'Shopify API', 'Tailwind CSS', 'Redis', 'Node.js'],
+    metric: 'Fast Mobile Checkout',
+    liveUrl: 'https://nimramart.com'
   },
   {
     id: 3,
-    title: 'LuxeShop Headless Commerce',
-    client: 'Luxe Brand Co.',
-    category: 'E-Commerce Development',
-    description: 'Ultra-fast headless online store with instant page transitions, multi-currency checkout, and custom product 3D viewports.',
-    deliverables: ['Headless Next.js Storefront', 'Stripe Multi-Currency Engine', 'Real-Time Inventory Sync'],
-    technologies: ['Next.js', 'Shopify Plus API', 'Tailwind CSS', 'Redis'],
-    metric: '+340% Mobile Conversions'
+    title: 'TravelMate AI – AI Travel Assistant',
+    client: 'TravelMate AI',
+    category: 'AI Solutions & Automation',
+    description: 'AI travel planner and assistant leveraging OpenAI API, destination recommendations, and automated itinerary generation.',
+    deliverables: ['AI Travel Assistant', 'OpenAI API Pipeline', 'Itinerary Planner'],
+    technologies: ['React', 'Python', 'FastAPI', 'OpenAI API', 'Pinecone'],
+    metric: 'Instant AI Itineraries',
+    liveUrl: 'https://travelmate.ai'
   },
   {
     id: 4,
-    title: 'AeroCloud Enterprise Platform',
-    client: 'AeroTech Systems',
-    category: 'Web Development',
-    description: 'Modern corporate website and product portal showcasing cloud telemetry software with interactive glassmorphism UI.',
-    deliverables: ['Corporate Web Platform', 'Interactive Product Demos', 'Global Localization'],
-    technologies: ['React', 'TypeScript', 'Sora Typography', 'Framer Motion'],
-    metric: '99/100 Core Web Vitals'
+    title: 'RideFlow – Uber Clone Platform',
+    client: 'RideFlow Mobility',
+    category: 'Custom Software Development',
+    description: 'Ride-hailing & vehicle dispatch platform featuring real-time driver tracking, dynamic fare calculations, rider app, and admin control desk.',
+    deliverables: ['Driver Dispatch Engine', 'Dynamic Fare Calculator', 'Operations Admin Dashboard'],
+    technologies: ['React', 'Node.js', 'WebSockets', 'PostgreSQL', 'Docker', 'Flutter'],
+    metric: 'Real-time Tracking',
+    liveUrl: 'https://rideflow.app'
   }
 ];
 
 // 6. DEVELOPMENT PROCESS
 const PROCESS_STEPS = [
-  { num: '01', title: 'Discovery & Architecture Strategy', desc: 'Deep technical analysis of business objectives, user flows, and cloud infrastructure requirements.' },
-  { num: '02', title: 'Precision UI/UX & Glassmorphism Design', desc: 'Crafting luxury visual systems in Sora, Space Grotesk & Inter typography with pixel-perfect accuracy.' },
-  { num: '03', title: 'Agile Engineering & AI Integration', desc: 'Clean modular code sprints, weekly staging releases, and seamless OpenAI / microservice integration.' },
-  { num: '04', title: 'QA Security Audit & Speed Hardening', desc: 'Penetration testing, Core Web Vitals optimization, and 99.99% uptime load stress testing.' },
-  { num: '05', title: 'Production Launch & Continuous Scale', desc: 'Zero-downtime deployment, continuous monitoring, and proactive SLA retainer support.' }
+  { num: '01', title: 'Requirement Analysis & Strategy', desc: 'Understanding your business goals, user needs, and defining clear technical specifications.' },
+  { num: '02', title: 'Modern UI/UX & Wireframing', desc: 'Designing clean visual layouts in Sora, Space Grotesk, and Inter typography.' },
+  { num: '03', title: 'Agile Coding & AI Integration', desc: 'Writing modular code, setting up databases, and integrating required APIs.' },
+  { num: '04', title: 'Testing, QA & Optimization', desc: 'Thorough functional testing, speed optimization, and security checks.' },
+  { num: '05', title: 'Deployment & Ongoing Support', desc: 'Deploying your software live with reliable support and maintenance.' }
 ];
 
 // 7. TECHNOLOGIES MATRIX
@@ -176,30 +228,30 @@ const TECH_CATEGORIES = {
   All: ['React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'FastAPI', 'PyTorch', 'OpenAI API', 'PostgreSQL', 'Docker', 'AWS', 'Tailwind CSS'],
   Frontend: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vue.js'],
   Backend: ['Node.js', 'Python', 'FastAPI', 'Express', 'GraphQL', 'REST APIs'],
-  'AI & ML': ['PyTorch', 'OpenAI API', 'LangChain', 'Pinecone Vector DB', 'TensorFlow'],
-  'Cloud & DevOps': ['Docker', 'AWS', 'Vercel', 'PostgreSQL', 'Redis', 'Kubernetes']
+  'AI & ML': ['PyTorch', 'OpenAI API', 'LangChain', 'Pinecone Vector DB'],
+  'Cloud & DevOps': ['Docker', 'AWS', 'Vercel', 'PostgreSQL', 'Redis']
 };
 
 // 8. TESTIMONIALS
 const TESTIMONIALS = [
   {
-    quote: "NimraDev Labs built our enterprise AI platform with incredible speed and craftsmanship. Their attention to detail and code quality rivals top Silicon Valley agencies.",
-    author: "Marcus Vance",
-    role: "Chief Technology Officer",
-    company: "Nexus Global Corp",
-    avatar: "MV"
+    quote: "NimraDev Labs built our web platform with exceptional quality and attention to detail. Their communication and support throughout the project was outstanding.",
+    author: "Hassan Ahmed",
+    role: "Founder",
+    company: "Retail Platform",
+    avatar: "HA"
   },
   {
-    quote: "The team redesigned our corporate platform and integrated our custom ERP workflows seamlessly. Our conversion metrics jumped 340% within the first 60 days.",
-    author: "Elena Rostova",
-    role: "VP of Product Strategy",
-    company: "LuxeShop International",
-    avatar: "ER"
+    quote: "The team developed our custom software system smoothly. Our operational efficiency improved significantly after deployment.",
+    author: "Usman Tariq",
+    role: "Managing Director",
+    company: "Logistics Solutions",
+    avatar: "UT"
   },
   {
-    quote: "Working with NimraDev Labs felt like having an elite internal engineering team. Their AI chatbots and automation pipelines saved our operations 50+ hours weekly.",
-    author: "David Chen",
-    role: "Founder & CEO",
+    quote: "Working with NimraDev Labs has been a great experience. Their technical expertise in AI automation and web applications helped us launch on schedule.",
+    author: "Danial Chaudhry",
+    role: "Head of Operations",
     company: "FinEdge Software",
     avatar: "DC"
   }
@@ -215,12 +267,12 @@ export default function Home() {
     : PORTFOLIO_PROJECTS.filter((p) => p.category === selectedCategory);
 
   return (
-    <div className="space-y-24 sm:space-y-36 pt-24 pb-16 overflow-hidden bg-[#F8F9FC] text-[#0D0D14] font-inter">
+    <div className="space-y-16 sm:space-y-28 lg:space-y-36 pt-28 sm:pt-36 pb-16 overflow-x-hidden bg-[#F8F9FC] text-[#0D0D14] font-inter">
       
       {/* ========================================================
           1. HERO SECTION
          ======================================================== */}
-      <section className="relative pt-10 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section id="home" className="relative pt-10 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         {/* Background lighting & grid pattern */}
         <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] ambient-glow-purple blur-[140px] pointer-events-none rounded-full" />
@@ -228,7 +280,6 @@ export default function Home() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
           
-          {/* Headline & CTAs (Cols 1-7) */}
           <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
             
             {/* Live Status Badge */}
@@ -239,7 +290,7 @@ export default function Home() {
               className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-[#6C3FFC]/20 text-[#0D0D14] text-xs font-semibold shadow-sm"
             >
               <span className="w-2 h-2 rounded-full bg-[#6C3FFC] animate-ping" />
-              <span className="font-mono text-[#6C3FFC]">NimraDev Labs · Enterprise Digital Engineering</span>
+              <span className="font-mono text-[#6C3FFC]">NimraDev Labs · Software & AI Engineering</span>
             </motion.div>
 
             {/* Powerful Headline */}
@@ -294,59 +345,77 @@ export default function Home() {
               className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-slate-200"
             >
               <div className="space-y-1">
-                <span className="font-sora font-extrabold text-2xl text-[#0D0D14]">99.99%</span>
-                <p className="text-[11px] font-mono text-slate-500 uppercase">Uptime SLA</p>
+                <span className="font-sora font-extrabold text-2xl text-[#0D0D14]">99.9%</span>
+                <p className="text-[11px] font-mono text-slate-500 uppercase">Uptime</p>
               </div>
               <div className="space-y-1">
-                <span className="font-sora font-extrabold text-2xl text-[#6C3FFC]">$50M+</span>
-                <p className="text-[11px] font-mono text-slate-500 uppercase">Client Revenue</p>
+                <span className="font-sora font-extrabold text-2xl text-[#6C3FFC]">100+</span>
+                <p className="text-[11px] font-mono text-slate-500 uppercase">Projects Built</p>
               </div>
               <div className="space-y-1">
-                <span className="font-sora font-extrabold text-2xl text-[#0D0D14]">150+</span>
-                <p className="text-[11px] font-mono text-slate-500 uppercase">Releases</p>
+                <span className="font-sora font-extrabold text-2xl text-[#0D0D14]">24/7</span>
+                <p className="text-[11px] font-mono text-slate-500 uppercase">Support</p>
               </div>
               <div className="space-y-1">
-                <span className="font-sora font-extrabold text-2xl text-emerald-600">&lt;14ms</span>
-                <p className="text-[11px] font-mono text-slate-500 uppercase">API Latency</p>
+                <span className="font-sora font-extrabold text-2xl text-emerald-600">&lt;100ms</span>
+                <p className="text-[11px] font-mono text-slate-500 uppercase">Fast Speed</p>
               </div>
             </motion.div>
 
           </div>
 
-          {/* Coding Illustration & Glass Cards (Cols 8-12) */}
+          {/* Featured Core Live Projects Grid (Cols 8-12) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="lg:col-span-5 relative"
+            className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
-            {/* Floating Glass Element 1 */}
-            <div className="absolute -top-6 -left-6 z-20 hidden sm:flex items-center space-x-3 p-3.5 rounded-2xl bg-white border border-[#6C3FFC]/20 shadow-purple-glow animate-float text-[#0D0D14]">
-              <div className="w-8 h-8 rounded-lg bg-purple-gradient flex items-center justify-center text-white">
-                <Sparkles className="w-4 h-4" />
-              </div>
-              <div>
-                <p className="text-xs font-sora font-semibold text-[#0D0D14]">OpenAI Assistant</p>
-                <p className="text-[10px] font-mono text-emerald-600">STATUS: ACTIVE</p>
-              </div>
-            </div>
-
-            {/* Floating Glass Element 2 */}
-            <div className="absolute -bottom-6 -right-6 z-20 hidden sm:flex items-center space-x-3 p-3.5 rounded-2xl bg-white border border-[#6C3FFC]/20 shadow-purple-glow animate-float-delayed text-[#0D0D14]">
-              <div className="w-8 h-8 rounded-lg bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600">
-                <CheckCircle2 className="w-4 h-4" />
-              </div>
-              <div>
-                <p className="text-xs font-sora font-semibold text-[#0D0D14]">Core Web Vitals</p>
-                <p className="text-[10px] font-mono text-[#6C3FFC]">SCORE: 99/100</p>
-              </div>
-            </div>
-
-            {/* Main Interactive Coding Visual Widget */}
-            <InteractiveCodeDemo />
+            {PORTFOLIO_PROJECTS.map((project) => {
+              const IconComp = project.category === 'Web Development' ? Globe
+                : project.category === 'E-Commerce' ? ShoppingCart
+                : project.category === 'AI Solutions' ? Bot : Cpu;
+              return (
+                <div
+                  key={project.id}
+                  className="bg-white p-5 rounded-2xl border border-[#6C3FFC]/15 shadow-purple-glow hover:border-[#6C3FFC]/40 transition-all space-y-3 group"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="w-10 h-10 rounded-xl bg-[#6C3FFC]/10 flex items-center justify-center text-[#6C3FFC] group-hover:bg-purple-gradient group-hover:text-white transition-all shadow-sm">
+                      <IconComp className="w-5 h-5" />
+                    </div>
+                    <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200">
+                      LIVE ONLINE
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-mono text-slate-400 font-semibold uppercase">{project.category}</span>
+                    <h4 className="font-sora font-bold text-sm text-[#0D0D14] line-clamp-1 group-hover:text-[#6C3FFC] transition-colors">
+                      {project.title}
+                    </h4>
+                  </div>
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-sora font-semibold text-[#6C3FFC] hover:underline pt-1"
+                  >
+                    <span>Live Preview</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              );
+            })}
           </motion.div>
 
         </div>
+      </section>
+
+      {/* ========================================================
+          1.5 OFFICIAL BRAND BANNER
+         ======================================================== */}
+      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <BrandBanner />
       </section>
 
       {/* ========================================================
@@ -355,7 +424,7 @@ export default function Home() {
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="bg-white rounded-2xl p-6 border border-[#6C3FFC]/15 shadow-sm overflow-hidden text-center space-y-4">
           <p className="text-xs uppercase tracking-widest text-slate-500 font-mono font-semibold">
-            Inspired by World-Class Standards · Engineering for Fortune 500 & Startups
+            Built With Modern Technology Stack & Industry Standards
           </p>
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 pt-2 opacity-80">
             {TRUSTED_COMPANIES.map((company) => (
@@ -383,22 +452,22 @@ export default function Home() {
                 <span>About NimraDev Labs</span>
               </div>
               
-              <h2 className="font-sora text-3xl sm:text-4xl font-extrabold text-[#0D0D14] leading-tight">
-                Architecting Enterprise Digital Products with Absolute Precision
+              <h2 className="font-space text-3xl sm:text-4xl font-extrabold text-[#0D0D14] leading-tight">
+                Building High-Quality Software & Digital Solutions
               </h2>
               
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-inter">
-                NimraDev Labs is an international software engineering firm. We combine deep technical expertise in modern frontend engineering, scalable cloud backend systems, and cutting-edge AI automation to build high-performance software.
+                NimraDev Labs is a professional software engineering company based in Pakistan. We build clean web platforms, e-commerce stores, custom software systems, and AI automation to help local businesses and growing startups succeed.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 <div className="p-4 rounded-2xl bg-[#F8F9FC] border border-slate-200 space-y-1">
-                  <h4 className="font-sora font-bold text-[#0D0D14] text-sm">Dedicated Senior Squads</h4>
-                  <p className="text-xs text-slate-500 font-inter">Direct access to principal architects with zero junior handoffs.</p>
+                  <h4 className="font-sora font-bold text-[#0D0D14] text-sm">Dedicated Core Team</h4>
+                  <p className="text-xs text-slate-500 font-inter">Direct communication with our software engineering team.</p>
                 </div>
                 <div className="p-4 rounded-2xl bg-[#F8F9FC] border border-slate-200 space-y-1">
-                  <h4 className="font-sora font-bold text-[#0D0D14] text-sm">AI Native Workflows</h4>
-                  <p className="text-xs text-slate-500 font-inter">Custom LLMs and process automation baked into core systems.</p>
+                  <h4 className="font-sora font-bold text-[#0D0D14] text-sm">AI & Smart Workflows</h4>
+                  <p className="text-xs text-slate-500 font-inter">Integrating AI tools and process automation into software.</p>
                 </div>
               </div>
             </div>
@@ -407,26 +476,26 @@ export default function Home() {
             <div className="bg-[#F8F9FC] p-8 rounded-2xl border border-slate-200 space-y-6">
               <div className="flex items-center justify-between border-b border-slate-200 pb-4">
                 <span className="font-sora font-semibold text-[#0D0D14] text-sm">Engineering Principles</span>
-                <span className="text-xs font-mono text-[#6C3FFC]">VERIFIED SLA</span>
+                <span className="text-xs font-mono text-[#6C3FFC]">CORE VALUE</span>
               </div>
 
               <div className="space-y-4 font-inter text-xs text-slate-600">
                 <div className="flex items-start space-x-3">
                   <CheckCircle2 className="w-4 h-4 text-[#6C3FFC] mt-0.5 shrink-0" />
                   <div>
-                    <strong className="text-[#0D0D14]">Zero Technical Debt Guarantee:</strong> Every line of code is structured, typed, and documented to ensure long-term maintainability.
+                    <strong className="text-[#0D0D14]">Clean Code & Maintenance:</strong> Structured code for long-term scalability and easy updates.
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle2 className="w-4 h-4 text-[#6C3FFC] mt-0.5 shrink-0" />
                   <div>
-                    <strong className="text-[#0D0D14]">Global Delivery Capability:</strong> Serving clients in North America, Europe, Middle East, and Pakistan with round-the-clock sprint velocity.
+                    <strong className="text-[#0D0D14]">Reliable Local Support:</strong> Prompt communication and ongoing technical assistance.
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <CheckCircle2 className="w-4 h-4 text-[#6C3FFC] mt-0.5 shrink-0" />
                   <div>
-                    <strong className="text-[#0D0D14]">Continuous Security & Compliance:</strong> SOC2-aligned development standards with automated threat detection.
+                    <strong className="text-[#0D0D14]">Security & Best Practices:</strong> Safe data handling and secure system authentication.
                   </div>
                 </div>
               </div>
@@ -445,11 +514,11 @@ export default function Home() {
             <Zap className="w-3.5 h-3.5" />
             <span>Core Engineering Services</span>
           </div>
-          <h2 className="font-sora text-3xl sm:text-5xl font-extrabold text-[#0D0D14]">
-            Four Pillars of Enterprise Digital Excellence
+          <h2 className="font-space text-3xl sm:text-5xl font-extrabold text-[#0D0D14]">
+            Four Pillars of Software Engineering Services
           </h2>
           <p className="text-slate-600 text-sm sm:text-base font-inter">
-            We focus exclusively on four specialized engineering domains to deliver world-class outcomes.
+            We focus on specialized technical services to deliver clean and effective digital solutions.
           </p>
         </div>
 
@@ -508,7 +577,7 @@ export default function Home() {
                   </div>
                   <div className="text-xs font-mono text-[#6C3FFC] font-semibold flex items-center space-x-1.5">
                     <TrendingUp className="w-3.5 h-3.5" />
-                    <span>Benchmark: {service.metric}</span>
+                    <span>Focus: {service.metric}</span>
                   </div>
                 </div>
               </motion.div>
@@ -518,16 +587,23 @@ export default function Home() {
       </section>
 
       {/* ========================================================
+          4.5 READY-TO-DEPLOY SOFTWARE PRODUCTS
+         ======================================================== */}
+      <section id="products" className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <SoftwareProducts />
+      </section>
+
+      {/* ========================================================
           5. INDUSTRIES WE SERVE
          ======================================================== */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
         <div className="text-center space-y-4 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#6C3FFC]/10 border border-[#6C3FFC]/30 text-[#6C3FFC] text-xs font-semibold uppercase tracking-wider font-mono">
             <Layers className="w-3.5 h-3.5" />
-            <span>Vertical Domain Expertise</span>
+            <span>Domain Experience</span>
           </div>
-          <h2 className="font-sora text-3xl sm:text-4xl font-extrabold text-[#0D0D14]">
-            Tailored Engineering Solutions for High-Growth Sectors
+          <h2 className="font-space text-3xl sm:text-4xl font-extrabold text-[#0D0D14]">
+            Solutions Designed for Key Business Sectors
           </h2>
         </div>
 
@@ -557,10 +633,10 @@ export default function Home() {
         <div className="bg-white rounded-3xl p-8 sm:p-14 border border-[#6C3FFC]/15 relative overflow-hidden shadow-purple-glow">
           <div className="text-center space-y-4 max-w-2xl mx-auto mb-12">
             <span className="text-[#6C3FFC] text-xs font-mono font-semibold uppercase tracking-wider bg-[#6C3FFC]/10 px-3.5 py-1.5 rounded-full border border-[#6C3FFC]/30">
-              The Engineering Difference
+              Why Partner With Us
             </span>
-            <h2 className="font-sora text-3xl sm:text-4xl font-extrabold text-[#0D0D14]">
-              Why Global Enterprise Leaders Choose NimraDev Labs
+            <h2 className="font-space text-3xl sm:text-4xl font-extrabold text-[#0D0D14]">
+              Why Businesses Choose NimraDev Labs
             </h2>
           </div>
 
@@ -590,10 +666,10 @@ export default function Home() {
           <div className="space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#6C3FFC]/10 border border-[#6C3FFC]/30 text-[#6C3FFC] text-xs font-semibold uppercase tracking-wider font-mono">
               <Code2 className="w-3.5 h-3.5" />
-              <span>Proven Track Record</span>
+              <span>Project Work</span>
             </div>
-            <h2 className="font-sora text-3xl sm:text-4xl font-extrabold text-[#0D0D14]">
-              Featured Enterprise Case Studies
+            <h2 className="font-space text-3xl sm:text-4xl font-extrabold text-[#0D0D14]">
+              Featured Client Projects & Builds
             </h2>
           </div>
 
@@ -652,9 +728,24 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="px-8 py-4 bg-[#F8F9FC] border-t border-slate-100 flex items-center justify-between text-xs text-slate-600 font-sora font-semibold group-hover:text-[#6C3FFC]">
-                <span>View Full Technical Case Study</span>
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <div className="px-8 py-4 bg-[#F8F9FC] border-t border-slate-100 flex items-center justify-between gap-4 text-xs font-sora font-semibold">
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-purple-gradient text-white hover:opacity-90 transition-all shadow-purple-glow cursor-pointer"
+                >
+                  <span>Live Preview</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+                <button
+                  onClick={() => setSelectedProject(project)}
+                  className="inline-flex items-center gap-1 text-slate-600 hover:text-[#6C3FFC] transition-colors"
+                >
+                  <span>Case Study</span>
+                  <ChevronRight className="w-4 h-4" />
+                </button>
               </div>
             </div>
           ))}
@@ -665,16 +756,16 @@ export default function Home() {
       </section>
 
       {/* ========================================================
-          8. OUR DEVELOPMENT PROCESS
+          8. DEVELOPMENT PROCESS
          ======================================================== */}
       <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
         <div className="text-center space-y-4 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#6C3FFC]/10 border border-[#6C3FFC]/30 text-[#6C3FFC] text-xs font-semibold uppercase tracking-wider font-mono">
             <Activity className="w-3.5 h-3.5" />
-            <span>Agile Delivery Pipeline</span>
+            <span>Development Process</span>
           </div>
-          <h2 className="font-sora text-3xl sm:text-5xl font-extrabold text-[#0D0D14]">
-            5 Steps to Production Engineering Success
+          <h2 className="font-space text-3xl sm:text-5xl font-extrabold text-[#0D0D14]">
+            5 Steps to Delivering Software Success
           </h2>
         </div>
 
@@ -682,7 +773,7 @@ export default function Home() {
           {PROCESS_STEPS.map((step) => (
             <div
               key={step.num}
-              className="p-6 rounded-2xl bg-white border border-[#6C3FFC]/15 space-y-3 relative flex flex-col justify-between hover:border-[#6C3FFC]/40 hover:shadow-purple-glow transition-all shadow-sm"
+              className="p-6 rounded-2xl bg-[#FFFFFF] border border-[#6C3FFC]/15 space-y-3 relative flex flex-col justify-between hover:border-[#6C3FFC]/40 hover:shadow-purple-glow transition-all shadow-sm"
             >
               <div className="space-y-3">
                 <span className="font-sora font-black text-3xl text-[#6C3FFC]/40">{step.num}</span>
@@ -701,10 +792,10 @@ export default function Home() {
         <div className="text-center space-y-4 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#6C3FFC]/10 border border-[#6C3FFC]/30 text-[#6C3FFC] text-xs font-semibold uppercase tracking-wider font-mono">
             <Terminal className="w-3.5 h-3.5" />
-            <span>Industrial Tech Stack</span>
+            <span>Tech Stack</span>
           </div>
-          <h2 className="font-sora text-3xl sm:text-4xl font-extrabold text-[#0D0D14]">
-            Modern Battle-Tested Technologies
+          <h2 className="font-space text-3xl sm:text-4xl font-extrabold text-[#0D0D14]">
+            Modern Development Stack
           </h2>
         </div>
 
@@ -745,10 +836,10 @@ export default function Home() {
         <div className="text-center space-y-4 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#6C3FFC]/10 border border-[#6C3FFC]/30 text-[#6C3FFC] text-xs font-semibold uppercase tracking-wider font-mono">
             <Users className="w-3.5 h-3.5" />
-            <span>Client Endorsements</span>
+            <span>Client Feedback</span>
           </div>
-          <h2 className="font-sora text-3xl sm:text-4xl font-extrabold text-[#0D0D14]">
-            Trusted by Technology Leaders Globally
+          <h2 className="font-space text-3xl sm:text-4xl font-extrabold text-[#0D0D14]">
+            Trusted by Business Owners & Teams
           </h2>
         </div>
 
@@ -787,8 +878,8 @@ export default function Home() {
           <span className="text-[#6C3FFC] text-xs font-mono font-semibold uppercase tracking-wider bg-[#6C3FFC]/10 px-3.5 py-1.5 rounded-full border border-[#6C3FFC]/30">
             Frequently Asked Questions
           </span>
-          <h2 className="font-sora text-3xl sm:text-4xl font-extrabold text-[#0D0D14]">
-            Clear Answers for Technology Decisions
+          <h2 className="font-space text-3xl sm:text-4xl font-extrabold text-[#0D0D14]">
+            Clear Answers to Common Questions
           </h2>
         </div>
         <FAQAccordion />
@@ -801,13 +892,13 @@ export default function Home() {
         <div className="text-center space-y-4 max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#6C3FFC]/10 border border-[#6C3FFC]/30 text-[#6C3FFC] text-xs font-semibold uppercase tracking-wider font-mono">
             <Lock className="w-3.5 h-3.5" />
-            <span>Initiate Engagement</span>
+            <span>Get Started</span>
           </div>
-          <h2 className="font-sora text-3xl sm:text-5xl font-extrabold text-[#0D0D14]">
-            Let's Build Your Enterprise Software Solution
+          <h2 className="font-space text-3xl sm:text-5xl font-extrabold text-[#0D0D14]">
+            Let's Build Your Software Solution
           </h2>
           <p className="text-slate-600 text-sm sm:text-base font-inter">
-            Submit your technical brief or project scope below. Our principal architect will respond within 12 hours.
+            Submit your project requirements below. Our software engineering team will respond promptly.
           </p>
         </div>
 

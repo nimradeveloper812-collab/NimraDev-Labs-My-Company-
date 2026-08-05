@@ -4,24 +4,24 @@ import { ChevronDown, HelpCircle } from 'lucide-react';
 
 const faqs = [
   {
-    q: 'Why should Fortune 500 companies & startups choose NimraDev Labs?',
-    a: 'We eliminate technical debt by building software with enterprise precision. Unlike typical dev shops, we combine Silicon Valley architectural standards with specialized AI solutions, delivering bulletproof security, 99.99% uptime SLAs, and sub-second response times.'
+    q: 'Why should businesses choose NimraDev Labs for software development?',
+    a: 'We build clean, maintainable software with focus on reliability and clear communication. We combine modern web engineering with custom AI automation and software development to help your business operate smoothly.'
   },
   {
-    q: 'Can NimraDev Labs integrate custom AI agents into our existing software stack?',
-    a: 'Yes! Our AI team builds and deploys production-ready AI solutions—including OpenAI models, autonomous agent workflows, enterprise RAG search engines, and business process automation directly integrated into your existing CRM, ERP, or web platform.'
+    q: 'Can NimraDev Labs integrate custom AI tools into our existing software?',
+    a: 'Yes! Our development team builds and deploys practical AI solutions—including OpenAI integrations, AI chatbots, automated workflows, and data processing directly into your web app, CRM, or software platform.'
   },
   {
-    q: 'What is your typical software engineering timeline?',
-    a: 'High-converting business websites deliver within 10 to 14 days. Comprehensive E-Commerce engines, AI Solutions, and enterprise Custom Software take 3 to 8 weeks depending on scope. We work in weekly sprints with full staging environments and live client demos.'
+    q: 'What is your typical project delivery timeline?',
+    a: 'Business websites are delivered in 10 to 14 days. E-Commerce stores, AI solutions, and custom software systems take 3 to 6 weeks depending on requirements. We work in clear milestones with regular client updates.'
   },
   {
-    q: 'Do you provide full post-launch support and SLA management?',
-    a: 'Yes. Every project includes 30 days of complimentary hyper-care support, followed by optional enterprise retainer plans for 24/7 uptime monitoring, security patching, API maintenance, and feature scaling.'
+    q: 'Do you provide post-launch support and maintenance?',
+    a: 'Yes. Every project includes complimentary post-launch support, followed by optional maintenance plans for updates, security checks, and ongoing feature enhancements.'
   },
   {
     q: 'How do we get started on a project with NimraDev Labs?',
-    a: 'Simply click "Book a Discovery Call" or submit your project details via our contact form. Our senior engineering architect will review your technical requirements and respond within 12 business hours with an actionable roadmap.'
+    a: 'Simply click "DM Here" on WhatsApp or submit your project details via our contact form. Our team will review your requirements and respond promptly.'
   }
 ];
 

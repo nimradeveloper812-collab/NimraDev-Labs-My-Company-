@@ -5,7 +5,7 @@ import FAQAccordion from '../components/widgets/FAQAccordion';
 
 export default function Contact() {
   return (
-    <div className="space-y-24 sm:space-y-32 pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-inter bg-[#F8F9FC] text-[#0D0D14]">
+    <div className="space-y-16 sm:space-y-24 lg:space-y-32 pt-28 sm:pt-36 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-inter bg-[#F8F9FC] text-[#0D0D14]">
       
       {/* Header */}
       <section className="text-center space-y-6 max-w-3xl mx-auto">
@@ -33,34 +33,34 @@ export default function Contact() {
             </p>
 
             <div className="space-y-4 pt-2">
-              <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#F8F9FC] border border-slate-200">
+              <a href="mailto:nimra.developer.8122005@gmail.com" className="flex items-start gap-4 p-4 rounded-2xl bg-[#F8F9FC] border border-slate-200 hover:border-[#6C3FFC]/40 transition-colors block">
                 <div className="w-10 h-10 rounded-xl bg-purple-gradient flex items-center justify-center text-white shrink-0 shadow-purple-glow">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
                   <p className="text-xs text-slate-500 font-mono uppercase font-semibold">Email Us</p>
-                  <p className="font-sora font-semibold text-[#0D0D14] text-sm">hello@nimradevlabs.com</p>
+                  <p className="font-sora font-semibold text-[#0D0D14] text-sm sm:text-base break-all">nimra.developer.8122005@gmail.com</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#F8F9FC] border border-slate-200">
+              <a href="tel:+923249590859" className="flex items-start gap-4 p-4 rounded-2xl bg-[#F8F9FC] border border-slate-200 hover:border-[#6C3FFC]/40 transition-colors block">
                 <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-[#6C3FFC] shrink-0 shadow-sm">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
                   <p className="text-xs text-slate-500 font-mono uppercase font-semibold">Phone & WhatsApp</p>
-                  <p className="font-sora font-semibold text-[#0D0D14] text-sm">+92 (300) 123-4567</p>
+                  <p className="font-sora font-semibold text-[#0D0D14] text-sm">+92 3249590859</p>
                 </div>
-              </div>
+              </a>
 
               <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#F8F9FC] border border-slate-200">
                 <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-[#6C3FFC] shrink-0 shadow-sm">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500 font-mono uppercase font-semibold">Global HQ & Remote Delivery</p>
-                  <p className="font-sora font-semibold text-[#0D0D14] text-sm">Lahore / Islamabad · Pakistan</p>
-                  <p className="text-[11px] font-mono text-[#6C3FFC]">Serving Fortune 500 & Startups Globally</p>
+                  <p className="text-xs text-slate-500 font-mono uppercase font-semibold">Location & Remote Delivery</p>
+                  <p className="font-sora font-semibold text-[#0D0D14] text-sm">Pakistan · Global Engineering</p>
+                  <p className="text-[11px] font-mono text-[#6C3FFC]">Serving Enterprise Clients Globally</p>
                 </div>
               </div>
 
@@ -76,18 +76,18 @@ export default function Contact() {
             </div>
 
             {/* Instant WhatsApp Callout */}
-            <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-between gap-4">
+            <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-3">
-                <MessageSquare className="w-5 h-5 text-emerald-600" />
-                <span className="text-xs font-semibold text-emerald-900">Need Instant Chat Response?</span>
+                <MessageSquare className="w-5 h-5 text-emerald-600 shrink-0" />
+                <span className="text-xs font-semibold text-emerald-900 text-center sm:text-left">Need Instant Chat Response? DM Here</span>
               </div>
               <a
-                href="https://wa.me/923001234567"
+                href="https://wa.me/923249590859?text=Hello%20NimraDev%20Labs%2C%20I%20want%20to%20discuss%20a%20project."
                 target="_blank"
                 rel="noreferrer"
-                className="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-sora font-bold text-xs transition-colors shrink-0 shadow-sm"
+                className="w-full sm:w-auto text-center px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-sora font-bold text-xs transition-colors shrink-0 shadow-sm"
               >
-                WhatsApp Us
+                DM Here (WhatsApp)
               </a>
             </div>
           </div>
@@ -103,7 +103,7 @@ export default function Contact() {
       {/* FAQ Section */}
       <section className="space-y-10">
         <div className="text-center space-y-3 max-w-2xl mx-auto">
-          <h2 className="font-sora text-3xl font-bold text-[#0D0D14]">Project Inquiry FAQs</h2>
+          <h2 className="font-space text-3xl font-bold text-[#0D0D14]">Project Inquiry FAQs</h2>
           <p className="text-slate-600 text-sm font-inter">Instant answers to common client questions.</p>
         </div>
         <FAQAccordion />

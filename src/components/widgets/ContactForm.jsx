@@ -34,9 +34,9 @@ export default function ContactForm() {
           <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-600 mx-auto shadow-sm">
             <CheckCircle2 className="w-8 h-8" />
           </div>
-          <h3 className="font-sora text-2xl font-bold text-[#0D0D14]">Project Brief Transmitted!</h3>
+          <h3 className="font-sora text-2xl font-bold text-[#0D0D14]">Project Details Received!</h3>
           <p className="text-slate-600 text-sm max-w-md mx-auto font-inter">
-            Thank you for connecting with NimraDev Labs. Our Senior Engineering Architect will review your technical specifications and respond within 12 business hours.
+            Thank you for connecting with NimraDev Labs. Our software development team will review your requirements and respond promptly.
           </p>
           <button
             onClick={() => {
@@ -62,7 +62,7 @@ export default function ContactForm() {
                 <input
                   type="text"
                   required
-                  placeholder="Alexander Wright"
+                  placeholder="Your Full Name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full pl-10 pr-4 py-3 bg-[#F8F9FC] border border-slate-200 rounded-xl text-[#0D0D14] placeholder-slate-400 text-sm focus:outline-none focus:border-[#6C3FFC] focus:ring-1 focus:ring-[#6C3FFC] transition-colors"
@@ -73,14 +73,14 @@ export default function ContactForm() {
             {/* Email */}
             <div className="space-y-2">
               <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider font-mono">
-                Work Email <span className="text-[#6C3FFC]">*</span>
+                Email Address <span className="text-[#6C3FFC]">*</span>
               </label>
               <div className="relative">
                 <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
                 <input
                   type="email"
                   required
-                  placeholder="alexander@company.com"
+                  placeholder="name@company.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full pl-10 pr-4 py-3 bg-[#F8F9FC] border border-slate-200 rounded-xl text-[#0D0D14] placeholder-slate-400 text-sm focus:outline-none focus:border-[#6C3FFC] focus:ring-1 focus:ring-[#6C3FFC] transition-colors"
@@ -101,7 +101,7 @@ export default function ContactForm() {
                 <Building className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4" />
                 <input
                   type="text"
-                  placeholder="AeroTech Global Corp."
+                  placeholder="Company Name"
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                   className="w-full pl-10 pr-4 py-3 bg-[#F8F9FC] border border-slate-200 rounded-xl text-[#0D0D14] placeholder-slate-400 text-sm focus:outline-none focus:border-[#6C3FFC] focus:ring-1 focus:ring-[#6C3FFC] transition-colors"
@@ -109,10 +109,10 @@ export default function ContactForm() {
               </div>
             </div>
 
-            {/* Service Selection - 4 Core Services */}
+            {/* Service Selection */}
             <div className="space-y-2">
               <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider font-mono">
-                Core Service Category
+                Service Category
               </label>
               <select
                 value={formData.service}
@@ -120,9 +120,12 @@ export default function ContactForm() {
                 className="w-full px-4 py-3 bg-[#F8F9FC] border border-slate-200 rounded-xl text-[#0D0D14] text-sm focus:outline-none focus:border-[#6C3FFC] focus:ring-1 focus:ring-[#6C3FFC] transition-colors"
               >
                 <option value="Web Development">Web Development</option>
+                <option value="Mobile App Development">Mobile App Development</option>
                 <option value="E-Commerce Development">E-Commerce Development</option>
                 <option value="AI Solutions & Automation">AI Solutions & Automation</option>
-                <option value="Custom Software Development">Custom Software Development</option>
+                <option value="Custom Software & ERP">Custom Software & ERP</option>
+                <option value="Digital Marketing & SEO">Digital Marketing & SEO</option>
+                <option value="UI/UX & Graphic Design">UI/UX & Graphic Design</option>
               </select>
             </div>
 
@@ -131,12 +134,12 @@ export default function ContactForm() {
           {/* Message */}
           <div className="space-y-2">
             <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider font-mono">
-              Project Architecture & Requirements <span className="text-[#6C3FFC]">*</span>
+              Project Requirements & Message <span className="text-[#6C3FFC]">*</span>
             </label>
             <textarea
               required
               rows={4}
-              placeholder="Detail your goals, tech stack preferences, target timeline, or integrations..."
+              placeholder="Tell us about your project goals, required features, or target timeline..."
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               className="w-full p-4 bg-[#F8F9FC] border border-slate-200 rounded-xl text-[#0D0D14] placeholder-slate-400 text-sm focus:outline-none focus:border-[#6C3FFC] focus:ring-1 focus:ring-[#6C3FFC] transition-colors"
@@ -149,11 +152,11 @@ export default function ContactForm() {
             className="w-full flex items-center justify-center gap-2 py-4 px-8 rounded-xl font-sora font-semibold text-sm text-white bg-purple-gradient hover:opacity-90 shadow-purple-glow transition-all duration-300 disabled:opacity-50"
           >
             {loading ? (
-              <span>Transmitting Architecture Brief...</span>
+              <span>Submitting Message...</span>
             ) : (
               <>
                 <Send className="w-4 h-4" />
-                <span>Submit Technical Brief</span>
+                <span>Submit Requirements</span>
               </>
             )}
           </button>

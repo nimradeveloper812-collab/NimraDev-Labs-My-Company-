@@ -23,39 +23,39 @@ export default function ProjectModal({ project, onClose }) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          className="relative w-full max-w-4xl bg-white border border-[#6C3FFC]/20 rounded-3xl shadow-2xl overflow-hidden z-10 my-auto text-[#0D0D14]"
+          className="relative w-full max-w-4xl bg-white border border-[#6C3FFC]/20 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden z-10 my-auto text-[#0D0D14]"
         >
           {/* Header Bar */}
-          <div className="flex items-center justify-between px-6 py-5 border-b border-slate-100 bg-[#F8F9FC]">
-            <div className="flex items-center space-x-3">
-              <span className="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#6C3FFC]/10 text-[#6C3FFC] border border-[#6C3FFC]/20">
+          <div className="flex items-center justify-between px-4 sm:px-6 py-4 border-b border-slate-100 bg-[#F8F9FC]">
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold uppercase tracking-wider bg-[#6C3FFC]/10 text-[#6C3FFC] border border-[#6C3FFC]/20">
                 {project.category}
               </span>
-              <span className="text-xs text-slate-500 font-mono">ID: NDL-{project.id.toString().padStart(3, '0')}</span>
+              <span className="text-[10px] sm:text-xs text-slate-500 font-mono">ID: NDL-{project.id.toString().padStart(3, '0')}</span>
             </div>
             <button
               onClick={onClose}
-              className="p-2 rounded-full text-slate-500 hover:text-[#0D0D14] hover:bg-slate-100 transition-colors"
+              className="p-1.5 rounded-full text-slate-500 hover:text-[#0D0D14] hover:bg-slate-100 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
           {/* Modal Content */}
-          <div className="p-6 md:p-8 max-h-[80vh] overflow-y-auto space-y-8">
+          <div className="p-4 sm:p-6 md:p-8 max-h-[82vh] overflow-y-auto space-y-6 sm:space-y-8">
             {/* Title & Tagline */}
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold font-sora text-[#0D0D14] mb-2">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold font-sora text-[#0D0D14] mb-2 leading-tight">
                 {project.title}
               </h2>
-              <p className="text-slate-600 text-base md:text-lg leading-relaxed font-inter">
+              <p className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed font-inter">
                 {project.description}
               </p>
             </div>
 
             {/* Visual Header / Banner Mockup */}
-            <div className="relative rounded-2xl overflow-hidden border border-[#6C3FFC]/15 bg-[#F8F9FC] p-8 text-center bg-gradient-to-br from-[#6C3FFC]/5 via-[#F8F9FC] to-[#8B5CF6]/10">
-              <div className="text-6xl font-bold text-[#0D0D14]/5 font-sora select-none uppercase tracking-widest">
+            <div className="relative rounded-2xl overflow-hidden border border-[#6C3FFC]/15 bg-[#F8F9FC] p-4 sm:p-8 text-center bg-gradient-to-br from-[#6C3FFC]/5 via-[#F8F9FC] to-[#8B5CF6]/10 space-y-3 sm:space-y-4">
+              <div className="text-3xl sm:text-6xl font-bold text-[#0D0D14]/5 font-sora select-none uppercase tracking-widest truncate">
                 {project.client}
               </div>
               <div className="relative z-10 space-y-3">
@@ -66,6 +66,19 @@ export default function ProjectModal({ project, onClose }) {
                 <div className="text-[#6C3FFC] font-mono text-xl font-bold">
                   {project.metric}
                 </div>
+                {project.liveUrl && (
+                  <div className="pt-2">
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-sora font-semibold text-xs text-white bg-purple-gradient hover:opacity-90 shadow-purple-glow transition-all"
+                    >
+                      <span>Launch Live Project Demo</span>
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -123,14 +136,27 @@ export default function ProjectModal({ project, onClose }) {
           </div>
 
           {/* Modal Footer */}
-          <div className="flex items-center justify-between px-6 py-4 bg-[#F8F9FC] border-t border-slate-100">
-            <span className="text-xs text-slate-500 font-mono">NimraDev Labs Case Study</span>
-            <button
-              onClick={onClose}
-              className="px-5 py-2 rounded-xl text-sm font-semibold bg-[#6C3FFC] text-white hover:bg-[#8B5CF6] transition-colors shadow-purple-glow"
-            >
-              Close Overview
-            </button>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 px-4 sm:px-6 py-3.5 bg-[#F8F9FC] border-t border-slate-100 text-center sm:text-left">
+            <span className="text-[11px] sm:text-xs text-slate-500 font-mono">NimraDev Labs Verified Case Study</span>
+            <div className="flex items-center space-x-3 w-full sm:w-auto justify-center">
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded-xl text-xs font-semibold bg-purple-gradient text-white hover:opacity-90 transition-opacity shadow-purple-glow inline-flex items-center gap-1.5"
+                >
+                  <span>Open Live Demo</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              )}
+              <button
+                onClick={onClose}
+                className="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-200 text-slate-700 hover:bg-slate-300 transition-colors"
+              >
+                Close
+              </button>
+            </div>
           </div>
         </motion.div>
       </div>

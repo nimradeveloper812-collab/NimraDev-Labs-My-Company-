@@ -1,49 +1,101 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ArrowRight, Code2 } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, X, MessageSquare } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import LogoMark from '../common/LogoMark';
+import TopBar from './TopBar';
 
 const navLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Services', path: '/services' },
-  { name: 'Portfolio', path: '/portfolio' },
-  { name: 'Contact', path: '/contact' },
+  { name: 'Home', path: '/', sectionId: 'home' },
+  { name: 'About', path: '/about', sectionId: 'about' },
+  { name: 'Services', path: '/services', sectionId: 'services' },
+  { name: 'Products', path: '/#products', sectionId: 'products' },
+  { name: 'Portfolio', path: '/portfolio', sectionId: 'portfolio' },
+  { name: 'Contact', path: '/contact', sectionId: 'contact' },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+
+      // Scroll Spy logic for smooth section highlighting on scroll
+      if (location.pathname === '/') {
+        const sectionIds = ['home', 'about', 'services', 'products', 'portfolio', 'contact'];
+        const scrollPosition = window.scrollY + 220;
+
+        for (let i = sectionIds.length - 1; i >= 0; i--) {
+          const section = document.getElementById(sectionIds[i]);
+          if (section) {
+            const sectionTop = section.offsetTop;
+            if (scrollPosition >= sectionTop) {
+              setActiveSection(sectionIds[i]);
+              break;
+            }
+          }
+        }
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+    return () => {
+      document.body.classList.remove('menu-open');
+    };
+  }, [mobileMenuOpen]);
+
+  const handleNavClick = (e, link) => {
+    if (location.pathname === '/') {
+      const targetElement = document.getElementById(link.sectionId);
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+        setActiveSection(link.sectionId);
+      }
+    }
+  };
+
+  const getIsActive = (link) => {
+    if (location.pathname === '/') {
+      return activeSection === link.sectionId;
+    }
+    return location.pathname === link.path;
+  };
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/90 backdrop-blur-md py-3.5 shadow-sm border-b border-[#6C3FFC]/15'
-          : 'bg-transparent py-5'
-      }`}
-    >
+    <div className="fixed top-0 left-0 right-0 z-50">
+      <TopBar />
+      <header
+        className={`transition-all duration-300 ${
+          scrolled
+            ? 'bg-white/95 backdrop-blur-md py-3 shadow-sm border-b border-[#6C3FFC]/15'
+            : 'bg-white/80 backdrop-blur-sm py-4 border-b border-slate-200/60'
+        }`}
+      >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Logo */}
+          {/* Official Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-purple-gradient flex items-center justify-center text-white shadow-purple-glow group-hover:scale-105 transition-transform duration-300">
-              <Code2 className="w-5 h-5 text-white" />
-            </div>
+            <LogoMark className="w-10 h-10 group-hover:scale-105 transition-transform duration-300" />
             <div className="flex flex-col">
               <span className="font-sora font-extrabold text-xl text-[#0D0D14] tracking-tight leading-tight">
                 NimraDev<span className="text-[#6C3FFC]"> Labs</span>
@@ -54,14 +106,15 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation with Animated Purple Scroll Spy Pill */}
           <nav className="hidden md:flex items-center gap-1 bg-white/90 p-1.5 rounded-full border border-[#6C3FFC]/15 backdrop-blur-md shadow-sm">
             {navLinks.map((link) => {
-              const isActive = location.pathname === link.path;
+              const isActive = getIsActive(link);
               return (
                 <Link
                   key={link.name}
                   to={link.path}
+                  onClick={(e) => handleNavClick(e, link)}
                   className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 relative font-inter ${
                     isActive
                       ? 'text-[#6C3FFC] font-semibold'
@@ -81,15 +134,17 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Header Action Button (No Theme Toggle) */}
+          {/* Header Action Button (Direct WhatsApp DM Here) */}
           <div className="hidden md:flex items-center gap-3">
-            <Link
-              to="/contact"
-              className="group relative inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-sora font-semibold text-xs uppercase tracking-wider text-white bg-purple-gradient hover:opacity-90 shadow-purple-glow transition-all duration-300 overflow-hidden"
+            <a
+              href="https://wa.me/923249590859?text=Hello%20NimraDev%20Labs%2C%20I%20want%20to%20discuss%20a%20project."
+              target="_blank"
+              rel="noreferrer"
+              className="group relative inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-sora font-semibold text-xs uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-500 shadow-sm transition-all duration-300 overflow-hidden cursor-pointer"
             >
-              <span>Book Discovery Call</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+              <MessageSquare className="w-4 h-4" />
+              <span>DM Here</span>
+            </a>
           </div>
 
           {/* Mobile Actions */}
@@ -117,11 +172,12 @@ export default function Navbar() {
           >
             <div className="px-6 py-6 space-y-3 font-inter">
               {navLinks.map((link) => {
-                const isActive = location.pathname === link.path;
+                const isActive = getIsActive(link);
                 return (
                   <Link
                     key={link.name}
                     to={link.path}
+                    onClick={(e) => handleNavClick(e, link)}
                     className={`block px-4 py-3 rounded-xl text-base font-medium transition-all ${
                       isActive
                         ? 'bg-[#6C3FFC]/10 border border-[#6C3FFC]/30 text-[#6C3FFC] font-semibold'
@@ -133,18 +189,21 @@ export default function Navbar() {
                 );
               })}
               <div className="pt-4 border-t border-slate-100">
-                <Link
-                  to="/contact"
-                  className="flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-xl font-sora font-semibold text-center text-white bg-purple-gradient shadow-purple-glow"
+                <a
+                  href="https://wa.me/923249590859?text=Hello%20NimraDev%20Labs%2C%20I%20want%20to%20discuss%20a%20project."
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-xl font-sora font-semibold text-center text-white bg-emerald-600 hover:bg-emerald-500 shadow-sm"
                 >
-                  <span>Book Discovery Call</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+                  <MessageSquare className="w-4 h-4" />
+                  <span>DM Here (WhatsApp)</span>
+                </a>
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </header>
+    </div>
   );
 }

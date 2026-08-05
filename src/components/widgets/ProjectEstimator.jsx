@@ -47,10 +47,10 @@ export default function ProjectEstimator() {
             <span>Interactive Cost Calculator</span>
           </div>
           <h3 className="font-sora text-2xl sm:text-3xl font-bold text-[#0D0D14]">
-            Estimate Your Enterprise Investment
+            Estimate Your Project Investment
           </h3>
           <p className="text-slate-600 text-sm max-w-xl mx-auto font-inter">
-            Select your target service and modular add-ons for instant budget transparency and realistic production timelines.
+            Select your service category and additional modules for estimated budget transparency and production timelines.
           </p>
         </div>
 
@@ -88,7 +88,7 @@ export default function ProjectEstimator() {
         {/* Step 2: Select Addons */}
         <div className="space-y-3">
           <label className="block font-sora font-semibold text-[#0D0D14] text-sm">
-            2. Add Enterprise Modules & Enhancements:
+            2. Add Additional Modules & Features:
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {featureAddons.map((addon) => {
@@ -123,7 +123,7 @@ export default function ProjectEstimator() {
         {/* Output Bar */}
         <div className="p-6 rounded-2xl bg-[#F8F9FC] border border-[#6C3FFC]/20 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="space-y-1 text-center sm:text-left">
-            <p className="text-xs uppercase tracking-wider text-slate-500 font-mono font-semibold">Estimated Scope Investment</p>
+            <p className="text-xs uppercase tracking-wider text-slate-500 font-mono font-semibold">Estimated Project Investment</p>
             <div className="flex items-baseline gap-2 justify-center sm:justify-start">
               <span className="font-sora font-extrabold text-3xl text-[#0D0D14]">${totalPrice}</span>
               <span className="text-slate-500 text-xs font-mono">USD</span>
@@ -136,7 +136,7 @@ export default function ProjectEstimator() {
             state={{ selectedService: selectedType.name, estimatedPrice: totalPrice }}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-sora font-semibold text-sm text-white bg-purple-gradient hover:opacity-90 shadow-purple-glow transition-all duration-300 shrink-0"
           >
-            <span>Lock Scope & Book Call</span>
+            <span>Discuss Estimated Scope</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
