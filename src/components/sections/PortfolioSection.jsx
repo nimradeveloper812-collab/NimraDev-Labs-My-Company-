@@ -90,15 +90,13 @@ export default function PortfolioSection() {
                     <div className="absolute top-0 w-full h-full bg-[#6C3FFC]/10 blur-[50px]"></div>
                     
                     {/* PDFora Logo */}
-                    <div className="relative z-10 w-20 h-20 rounded-2xl bg-gradient-to-tr from-[#6C3FFC] to-[#8B5CF6] flex items-center justify-center shadow-[0_0_30px_rgba(108,63,252,0.4)] mb-4 group-hover:scale-110 transition-transform duration-500">
-                      <span className="font-sora font-extrabold text-white text-xl">
-                        PDF
-                      </span>
+                    <div className="relative z-10 w-20 h-20 rounded-2xl bg-white flex items-center justify-center shadow-[0_0_30px_rgba(108,63,252,0.4)] mb-4 group-hover:scale-110 transition-transform duration-500 overflow-hidden p-1">
+                      <img src="https://pdfora.com/pdfora-logo.jpg" alt="PDFora Logo" className="w-full h-full object-cover rounded-xl" />
                     </div>
 
                     {/* Small Description Banner inside image area */}
-                    <div className="relative z-10 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-sora tracking-wide uppercase shadow-lg group-hover:-translate-y-1 transition-transform duration-300">
-                      Ultimate PDF Suite
+                    <div className="relative z-10 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-sora tracking-wide lowercase shadow-lg group-hover:-translate-y-1 transition-transform duration-300">
+                      pdfora.nimradev.site
                     </div>
                   </>
                 ) : (
@@ -130,9 +128,15 @@ export default function PortfolioSection() {
                 <h3 className="text-xl font-sora font-bold text-[#0D0D14] mb-2 group-hover:text-[#6C3FFC] transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-slate-600 font-inter text-sm mb-4 leading-relaxed flex-grow">
+                <p className="text-slate-600 font-inter text-sm mb-6 leading-relaxed flex-grow">
                   {project.description}
                 </p>
+                <div className="mt-auto inline-flex items-center gap-2 text-[#6C3FFC] font-sora font-semibold text-xs transition-colors">
+                  <span className="group-hover:underline underline-offset-4">View Project</span>
+                  <div className="w-6 h-6 rounded-full bg-[#F4EFFF] flex items-center justify-center group-hover:bg-[#6C3FFC] group-hover:text-white transition-all duration-300">
+                    <ArrowUpRight className="w-3 h-3" />
+                  </div>
+                </div>
               </div>
             </motion.a>
           ))}
