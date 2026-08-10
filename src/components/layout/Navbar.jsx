@@ -9,8 +9,8 @@ const navLinks = [
   { name: 'Home', path: '/', sectionId: 'home' },
   { name: 'About', path: '/about', sectionId: 'about' },
   { name: 'Services', path: '/services', sectionId: 'services' },
-  { name: 'Products', path: '/#products', sectionId: 'products' },
   { name: 'Portfolio', path: '/portfolio', sectionId: 'portfolio' },
+  { name: 'Process', path: '/#process', sectionId: 'process' },
   { name: 'Contact', path: '/contact', sectionId: 'contact' },
 ];
 
@@ -26,7 +26,7 @@ export default function Navbar() {
 
       // Scroll Spy logic for smooth section highlighting on scroll
       if (location.pathname === '/') {
-        const sectionIds = ['home', 'about', 'services', 'products', 'portfolio', 'contact'];
+        const sectionIds = ['home', 'about', 'services', 'portfolio', 'process', 'contact'];
         const scrollPosition = window.scrollY + 220;
 
         for (let i = sectionIds.length - 1; i >= 0; i--) {
@@ -134,17 +134,14 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Header Action Button (Direct WhatsApp DM Here) */}
+          {/* Header Action Button */}
           <div className="hidden md:flex items-center gap-3">
-            <a
-              href="https://wa.me/923249590859?text=Hello%20NimraDev%20Labs%2C%20I%20want%20to%20discuss%20a%20project."
-              target="_blank"
-              rel="noreferrer"
-              className="group relative inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-sora font-semibold text-xs uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-500 shadow-sm transition-all duration-300 overflow-hidden cursor-pointer"
+            <Link
+              to="/contact"
+              className="group relative inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-sora font-semibold text-xs uppercase tracking-wider text-white bg-[#6C3FFC] hover:bg-[#8B5CF6] shadow-sm transition-all duration-300 overflow-hidden cursor-pointer"
             >
-              <MessageSquare className="w-4 h-4" />
-              <span>DM Here</span>
-            </a>
+              <span>Get Started</span>
+            </Link>
           </div>
 
           {/* Mobile Actions */}
@@ -189,15 +186,12 @@ export default function Navbar() {
                 );
               })}
               <div className="pt-4 border-t border-slate-100">
-                <a
-                  href="https://wa.me/923249590859?text=Hello%20NimraDev%20Labs%2C%20I%20want%20to%20discuss%20a%20project."
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-xl font-sora font-semibold text-center text-white bg-emerald-600 hover:bg-emerald-500 shadow-sm"
+                <Link
+                  to="/contact"
+                  className="flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-xl font-sora font-semibold text-center text-white bg-[#6C3FFC] hover:bg-[#8B5CF6] shadow-sm"
                 >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>DM Here (WhatsApp)</span>
-                </a>
+                  <span>Get Started</span>
+                </Link>
               </div>
             </div>
           </motion.div>

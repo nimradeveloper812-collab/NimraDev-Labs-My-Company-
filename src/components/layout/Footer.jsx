@@ -105,11 +105,11 @@ export default function Footer() {
             <h3 className="font-sora font-semibold text-[#0D0D14] text-base">Navigation</h3>
             <ul className="space-y-2 text-xs text-slate-600 font-inter">
               <li><Link to="/" className="hover:text-[#6C3FFC] transition-colors">Home</Link></li>
-              <li><Link to="/about" className="hover:text-[#6C3FFC] transition-colors">About Us</Link></li>
-              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">All Services</Link></li>
-              <li><a href="/#products" className="hover:text-[#6C3FFC] transition-colors">Ready Products</a></li>
-              <li><Link to="/portfolio" className="hover:text-[#6C3FFC] transition-colors">Portfolio & Case Studies</Link></li>
-              <li><Link to="/contact" className="hover:text-[#6C3FFC] transition-colors">Contact & Inquiries</Link></li>
+              <li><Link to="/about" className="hover:text-[#6C3FFC] transition-colors">Company</Link></li>
+              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">Services</Link></li>
+              <li><Link to="/portfolio" className="hover:text-[#6C3FFC] transition-colors">Portfolio</Link></li>
+              <li><a href="/#process" className="hover:text-[#6C3FFC] transition-colors">Process</a></li>
+              <li><Link to="/contact" className="hover:text-[#6C3FFC] transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -118,12 +118,9 @@ export default function Footer() {
             <h3 className="font-sora font-semibold text-[#0D0D14] text-base">Services</h3>
             <ul className="space-y-2 text-xs text-slate-600 font-inter">
               <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">Web Development</Link></li>
-              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">Mobile App Development</Link></li>
-              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">Custom Software & ERP</Link></li>
-              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">AI Solutions & Automation</Link></li>
               <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">E-Commerce Development</Link></li>
-              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">Digital Marketing & SEO</Link></li>
-              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">UI/UX & Graphic Design</Link></li>
+              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">AI Solutions & Automation</Link></li>
+              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">Custom Software Development</Link></li>
             </ul>
           </div>
 
