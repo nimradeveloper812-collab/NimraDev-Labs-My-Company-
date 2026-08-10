@@ -3,6 +3,8 @@ import { Send, CheckCircle2 } from 'lucide-react';
 
 export default function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,21 +18,42 @@ export default function ContactForm() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Placeholder for actual form submission logic
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        projectType: '',
-        message: '',
+    setIsSubmitting(true);
+    setErrorMsg(null);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-    }, 4000);
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          company: '',
+          projectType: '',
+          message: '',
+        });
+      }, 5000);
+    } catch (error) {
+      console.error(error);
+      setErrorMsg('Failed to send message. Please try again later.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -173,11 +196,15 @@ export default function ContactForm() {
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-sora font-bold text-sm text-white bg-[#6C3FFC] hover:bg-[#8B5CF6] transition-all duration-300 shadow-purple-glow"
+                  disabled={isSubmitting}
+                  className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-sora font-bold text-sm text-white bg-[#6C3FFC] hover:bg-[#8B5CF6] transition-all duration-300 shadow-purple-glow disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  <span>Start a Project</span>
-                  <Send className="w-4 h-4" />
+                  <span>{isSubmitting ? 'Sending...' : 'Start a Project'}</span>
+                  {!isSubmitting && <Send className="w-4 h-4" />}
                 </button>
+                {errorMsg && (
+                  <p className="text-red-500 text-sm font-inter text-center mt-4">{errorMsg}</p>
+                )}
               </form>
             )}
           </div>

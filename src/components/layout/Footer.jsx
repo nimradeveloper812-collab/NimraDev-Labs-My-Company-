@@ -5,16 +5,40 @@ import LogoMark from '../common/LogoMark';
 
 export default function Footer() {
   const [subscribed, setSubscribed] = useState(false);
+  const [isSubscribing, setIsSubscribing] = useState(false);
   const [email, setEmail] = useState('');
+  const [errorMsg, setErrorMsg] = useState(null);
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
     e.preventDefault();
-    if (email) {
+    if (!email) return;
+    
+    setIsSubscribing(true);
+    setErrorMsg(null);
+    
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to subscribe');
+      }
+
       setSubscribed(true);
       setTimeout(() => {
         setSubscribed(false);
         setEmail('');
-      }, 3000);
+      }, 5000);
+    } catch (error) {
+      console.error(error);
+      setErrorMsg('Failed. Please try again.');
+    } finally {
+      setIsSubscribing(false);
     }
   };
 
@@ -61,11 +85,15 @@ export default function Footer() {
                   />
                   <button
                     type="submit"
-                    className="px-4 py-2.5 bg-purple-gradient text-white rounded-r-xl text-xs font-sora font-semibold hover:opacity-90 transition-opacity shadow-purple-glow"
+                    disabled={isSubscribing}
+                    className="px-4 py-2.5 bg-purple-gradient text-white rounded-r-xl text-xs font-sora font-semibold hover:opacity-90 transition-opacity shadow-purple-glow disabled:opacity-70 disabled:cursor-not-allowed w-28 text-center"
                   >
-                    Subscribe
+                    {isSubscribing ? 'Wait...' : 'Subscribe'}
                   </button>
                 </form>
+              )}
+              {errorMsg && (
+                <p className="text-red-500 text-[10px] font-inter mt-1">{errorMsg}</p>
               )}
             </div>
 
