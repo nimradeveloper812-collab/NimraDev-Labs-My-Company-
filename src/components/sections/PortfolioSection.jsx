@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const projects = [
@@ -89,9 +89,13 @@ export default function PortfolioSection() {
                     <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
                     <div className="absolute top-0 w-full h-full bg-[#6C3FFC]/10 blur-[50px]"></div>
                     
-                    {/* PDFora Logo */}
-                    <div className="relative z-10 w-20 h-20 rounded-2xl bg-white flex items-center justify-center shadow-[0_0_30px_rgba(108,63,252,0.4)] mb-4 group-hover:scale-110 transition-transform duration-500 overflow-hidden p-1">
-                      <img src="https://pdfora.com/pdfora-logo.jpg" alt="PDFora Logo" className="w-full h-full object-cover rounded-xl" />
+                    {/* PDFora CSS Logo */}
+                    <div className="relative z-10 w-24 h-24 rounded-3xl bg-gradient-to-tr from-[#6C3FFC] to-[#8B5CF6] flex flex-col items-center justify-center shadow-[0_10px_40px_rgba(108,63,252,0.5)] mb-6 group-hover:scale-110 group-hover:shadow-[0_15px_50px_rgba(108,63,252,0.6)] transition-all duration-500 overflow-hidden border border-white/20">
+                      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+                      <FileText className="w-10 h-10 text-white mb-1" strokeWidth={1.5} />
+                      <span className="font-sora font-extrabold text-white text-xs tracking-wider">
+                        PDFora
+                      </span>
                     </div>
 
                     {/* Small Description Banner inside image area */}
