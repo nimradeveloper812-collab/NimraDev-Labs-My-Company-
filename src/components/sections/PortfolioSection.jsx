@@ -9,7 +9,7 @@ const projects = [
     category: 'SaaS Tool',
     description: 'A powerful PDF manipulation tool to merge, split, and edit PDF files effortlessly.',
     link: 'https://pdfora.nimradev.site',
-    logoText: 'PDFora',
+    isSpecial: true,
   },
   {
     title: 'Medical Credentialing',
@@ -82,18 +82,40 @@ export default function PortfolioSection() {
               className="group flex flex-col rounded-3xl bg-[#F8F9FC] border border-slate-200 overflow-hidden hover:border-[#6C3FFC]/30 hover:shadow-[0_8px_30px_-10px_rgba(108,63,252,0.15)] transition-all duration-300"
             >
               {/* Image Placeholder with Logo */}
-              <div className="aspect-[4/3] w-full bg-slate-100 relative overflow-hidden flex items-center justify-center">
-                <div className="absolute inset-0 bg-grid-pattern opacity-30"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-slate-200/40 mix-blend-overlay"></div>
-                
-                {/* Logo inside the box */}
-                <div className="relative z-10 w-24 h-24 rounded-2xl bg-white border border-slate-200 flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform duration-300">
-                  <span className="font-sora font-bold text-[#6C3FFC] text-xl text-center">
-                    {project.logoText}
-                  </span>
-                </div>
+              <div className={`aspect-[4/3] w-full relative overflow-hidden flex flex-col items-center justify-center ${project.isSpecial ? 'bg-gradient-to-br from-[#0D0D14] to-[#1A1A24]' : 'bg-slate-100'}`}>
+                {project.isSpecial ? (
+                  <>
+                    {/* Dark modern background for PDFora */}
+                    <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+                    <div className="absolute top-0 w-full h-full bg-[#6C3FFC]/10 blur-[50px]"></div>
+                    
+                    {/* PDFora Logo */}
+                    <div className="relative z-10 w-20 h-20 rounded-2xl bg-gradient-to-tr from-[#6C3FFC] to-[#8B5CF6] flex items-center justify-center shadow-[0_0_30px_rgba(108,63,252,0.4)] mb-4 group-hover:scale-110 transition-transform duration-500">
+                      <span className="font-sora font-extrabold text-white text-xl">
+                        PDF
+                      </span>
+                    </div>
 
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[#0D0D14]/5 backdrop-blur-[2px]">
+                    {/* Small Description Banner inside image area */}
+                    <div className="relative z-10 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] font-sora tracking-wide uppercase shadow-lg group-hover:-translate-y-1 transition-transform duration-300">
+                      Ultimate PDF Suite
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-grid-pattern opacity-30"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-slate-200/40 mix-blend-overlay"></div>
+                    
+                    {/* Logo inside the box */}
+                    <div className="relative z-10 w-20 h-20 rounded-2xl bg-white border border-slate-200 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-500">
+                      <span className="font-sora font-bold text-[#6C3FFC] text-lg text-center">
+                        {project.logoText}
+                      </span>
+                    </div>
+                  </>
+                )}
+
+                <div className={`absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px] ${project.isSpecial ? 'bg-black/20' : 'bg-[#0D0D14]/5'}`}>
                   <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-lg text-[#0D0D14] transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                      <ArrowUpRight className="w-5 h-5" />
                   </div>

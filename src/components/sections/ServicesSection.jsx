@@ -42,18 +42,23 @@ const itemVariants = {
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-24 bg-[#F8F9FC] relative overflow-hidden">
+    <section id="services" className="py-24 bg-[#0D0D14] relative overflow-hidden">
+      {/* Glowy background effects */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#6C3FFC]/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#8B5CF6]/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none"></div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-white border border-slate-200 mb-6 shadow-sm">
-            <span className="text-xs font-sora font-semibold text-[#6C3FFC] tracking-widest uppercase">
+          <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6 backdrop-blur-sm">
+            <span className="text-xs font-sora font-semibold text-[#8B5CF6] tracking-widest uppercase shadow-purple-glow">
               Our Core Services
             </span>
           </div>
-          <h2 className="text-fluid-h2 font-sora font-bold text-[#0D0D14] mb-6">
+          <h2 className="text-fluid-h2 font-sora font-bold text-white mb-6">
             Digital Solutions for Modern Businesses
           </h2>
-          <p className="text-slate-600 font-inter text-lg">
+          <p className="text-slate-400 font-inter text-lg">
             We provide specialized engineering services to build, scale, and automate your digital presence.
           </p>
         </div>
@@ -63,7 +68,7 @@ export default function ServicesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {services.map((service, index) => {
             const Icon = service.icon;
@@ -71,15 +76,18 @@ export default function ServicesSection() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="group p-8 rounded-[2rem] bg-white border border-slate-200 hover:border-[#6C3FFC]/40 transition-all duration-300 hover:shadow-glass-light flex flex-col items-start"
+                className="group p-6 rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-[#8B5CF6]/60 transition-all duration-500 hover:shadow-[0_0_40px_rgba(108,63,252,0.25)] hover:-translate-y-2 flex flex-col items-center text-center relative overflow-hidden"
               >
-                <div className="w-14 h-14 rounded-2xl bg-[#F8F9FC] border border-slate-100 flex items-center justify-center mb-6 group-hover:bg-[#6C3FFC]/5 transition-colors">
-                  <Icon className="w-6 h-6 text-[#6C3FFC] stroke-[1.5]" />
+                {/* Inner hover glow */}
+                <div className="absolute inset-0 bg-gradient-to-b from-[#6C3FFC]/0 to-[#6C3FFC]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-[#6C3FFC]/20 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(108,63,252,0.4)] relative z-10">
+                  <Icon className="w-6 h-6 text-[#8B5CF6] stroke-[1.5]" />
                 </div>
-                <h3 className="text-xl font-sora font-bold text-[#0D0D14] mb-3">
+                <h3 className="text-lg font-sora font-bold text-white mb-3 relative z-10">
                   {service.title}
                 </h3>
-                <p className="text-slate-600 font-inter leading-relaxed">
+                <p className="text-slate-400 font-inter text-sm leading-relaxed relative z-10 group-hover:text-slate-300 transition-colors">
                   {service.description}
                 </p>
               </motion.div>
