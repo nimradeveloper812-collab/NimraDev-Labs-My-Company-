@@ -138,9 +138,9 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <Link
               to="/contact"
-              className="group relative inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full font-sora font-semibold text-xs uppercase tracking-wider text-white bg-[#6C3FFC] hover:bg-[#8B5CF6] shadow-sm transition-all duration-300 overflow-hidden cursor-pointer"
+              className="group relative inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-sora font-semibold text-xs text-white bg-[#6C3FFC] hover:bg-[#8B5CF6] shadow-sm hover:shadow-purple-glow transition-all duration-300 overflow-hidden cursor-pointer"
             >
-              <span>Get Started</span>
+              <span>Book a Free Call</span>
             </Link>
           </div>
 
@@ -190,7 +190,7 @@ export default function Navbar() {
                   to="/contact"
                   className="flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-xl font-sora font-semibold text-center text-white bg-[#6C3FFC] hover:bg-[#8B5CF6] shadow-sm"
                 >
-                  <span>Get Started</span>
+                  <span>Book a Free Discovery Call</span>
                 </Link>
               </div>
             </div>

@@ -162,21 +162,24 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2.5">
                 <Mail className="w-4 h-4 text-[#6C3FFC] mt-0.5 shrink-0" />
-                <a href="mailto:nimra.developer.8122005@gmail.com" className="hover:text-[#6C3FFC] break-all">nimra.developer.8122005@gmail.com</a>
+                <div className="flex flex-col">
+                  <a href="mailto:hello@nimradevlabs.com" className="hover:text-[#6C3FFC] font-semibold">hello@nimradevlabs.com</a>
+                  <a href="mailto:nimra.developer.8122005@gmail.com" className="hover:text-[#6C3FFC] text-[11px] text-slate-500 break-all">nimra.developer.8122005@gmail.com</a>
+                </div>
               </li>
               <li className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-[#6C3FFC] mt-0.5 shrink-0" />
-                <a href="tel:+923249590859" className="hover:text-[#6C3FFC]">+92 3249590859</a>
+                <a href="tel:+923249590859" className="hover:text-[#6C3FFC] font-medium">+92 324 9590859</a>
               </li>
               <li className="pt-2">
                 <a
                   href="https://wa.me/923249590859?text=Hello%20NimraDev%20Labs%2C%20I%20want%20to%20discuss%20a%20project."
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-mono hover:bg-emerald-100 transition-colors"
+                  className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-mono hover:bg-emerald-100 transition-colors shadow-sm"
                 >
                   <Radio className="w-3 h-3 animate-pulse text-emerald-500" />
-                  <span>WhatsApp: DM Here ↗</span>
+                  <span>WhatsApp: Direct Chat ↗</span>
                 </a>
               </li>
             </ul>
@@ -184,13 +187,13 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom copyright */}
+        {/* Bottom copyright & Legal */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono">
           <p>© {new Date().getFullYear()} NimraDev Labs. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <span className="hover:text-[#0D0D14] cursor-pointer">Privacy Policy</span>
-            <span className="hover:text-[#0D0D14] cursor-pointer">Terms of Service</span>
-            <span className="hover:text-[#0D0D14] cursor-pointer">Security Compliance</span>
+          <div className="flex flex-wrap items-center gap-6">
+            <Link to="/privacy" className="hover:text-[#6C3FFC] transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-[#6C3FFC] transition-colors">Terms of Service</Link>
+            <Link to="/social-preview" className="hover:text-[#6C3FFC] text-[#6C3FFC] font-semibold transition-colors">Social Share Preview</Link>
           </div>
         </div>
       </div>
