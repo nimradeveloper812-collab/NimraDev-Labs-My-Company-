@@ -28,7 +28,7 @@ export default function TopBar() {
         <div className="flex items-center space-x-3">
           <div className="hidden sm:flex items-center space-x-1.5 text-slate-300 font-mono text-[10px] sm:text-[11px]">
             <Clock className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-            <span>Mon - Sat: 9:00 AM - 9:00 PM PKT</span>
+            <span>Fri - Sun: 24 Hours · Mon - Thu: 9 AM - 9 PM PKT</span>
           </div>
 
           <a

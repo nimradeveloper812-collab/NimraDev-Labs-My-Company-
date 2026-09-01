@@ -61,7 +61,7 @@ export default function PrivacyPolicy() {
               We only collect information necessary to provide our high-standard development and consulting services:
             </p>
             <ul className="space-y-2 text-slate-600 text-sm sm:text-base list-disc list-inside">
-              <li><strong>Contact Data:</strong> Name, business email (<code className="text-[#6C3FFC] font-mono text-xs">hello@nimradevlabs.com</code>), phone / WhatsApp number, company name.</li>
+              <li><strong>Contact Data:</strong> Name, business email (<code className="text-[#6C3FFC] font-mono text-xs">nimra.developer.8122005@gmail.com</code>), phone / WhatsApp number, company name.</li>
               <li><strong>Project Inquiries:</strong> Technical specifications, project budget estimates, timeline preferences, and software architecture requirements.</li>
               <li><strong>Technical Metadata:</strong> Browser type, operating system, IP address, referral sources, and anonymized interaction analytics.</li>
             </ul>
@@ -116,7 +116,7 @@ export default function PrivacyPolicy() {
               You have the right to request access to, correction of, or complete deletion of any personal information held by NimraDev Labs.
             </p>
             <div className="p-5 rounded-2xl bg-[#F8F9FC] border border-[#6C3FFC]/20 text-xs sm:text-sm text-slate-700 space-y-2">
-              <p><strong>Direct Inquiries:</strong> <a href="mailto:hello@nimradevlabs.com" className="text-[#6C3FFC] font-semibold hover:underline">hello@nimradevlabs.com</a> / <a href="mailto:nimra.developer.8122005@gmail.com" className="text-[#6C3FFC] font-semibold hover:underline">nimra.developer.8122005@gmail.com</a></p>
+              <p><strong>Direct Inquiries:</strong> <a href="mailto:nimra.developer.8122005@gmail.com" className="text-[#6C3FFC] font-semibold hover:underline">nimra.developer.8122005@gmail.com</a></p>
               <p><strong>WhatsApp / Phone:</strong> <a href="tel:+923249590859" className="text-[#6C3FFC] font-semibold hover:underline">+92 324 9590859</a></p>
               <p><strong>Timezone / Location:</strong> Pakistan Standard Time (PKT / UTC+5) · Serving Global & Local Clients</p>
             </div>

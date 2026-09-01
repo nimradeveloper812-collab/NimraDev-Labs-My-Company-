@@ -174,10 +174,9 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2.5">
                 <Mail className="w-4 h-4 text-[#6C3FFC] mt-0.5 shrink-0" />
-                <div className="flex flex-col">
-                  <a href="mailto:hello@nimradevlabs.com" className="hover:text-[#6C3FFC] font-semibold">hello@nimradevlabs.com</a>
-                  <a href="mailto:nimra.developer.8122005@gmail.com" className="hover:text-[#6C3FFC] text-[11px] text-slate-500 break-all">nimra.developer.8122005@gmail.com</a>
-                </div>
+                <a href="mailto:nimra.developer.8122005@gmail.com" className="hover:text-[#6C3FFC] font-semibold break-all">
+                  nimra.developer.8122005@gmail.com
+                </a>
               </li>
               <li className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-[#6C3FFC] mt-0.5 shrink-0" />

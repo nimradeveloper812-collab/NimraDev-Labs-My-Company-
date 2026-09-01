@@ -105,7 +105,7 @@ export default function TermsOfService() {
               We pride ourselves on transparent, collaborative communication. In case of questions or service inquiries:
             </p>
             <div className="p-5 rounded-2xl bg-[#F8F9FC] border border-[#6C3FFC]/20 text-xs sm:text-sm text-slate-700 space-y-2">
-              <p><strong>Official Inquiries:</strong> <a href="mailto:hello@nimradevlabs.com" className="text-[#6C3FFC] font-semibold hover:underline">hello@nimradevlabs.com</a></p>
+              <p><strong>Official Inquiries:</strong> <a href="mailto:nimra.developer.8122005@gmail.com" className="text-[#6C3FFC] font-semibold hover:underline">nimra.developer.8122005@gmail.com</a></p>
               <p><strong>WhatsApp Support:</strong> <a href="tel:+923249590859" className="text-[#6C3FFC] font-semibold hover:underline">+92 324 9590859</a></p>
               <p><strong>Operating Headquarters:</strong> Pakistan (PKT UTC+5) · Serving Global Startups & Local Enterprises</p>
             </div>

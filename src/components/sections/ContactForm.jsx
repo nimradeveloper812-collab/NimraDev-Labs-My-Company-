@@ -96,10 +96,7 @@ export default function ContactForm() {
                   <h4 className="font-sora font-bold text-xs uppercase tracking-wider text-[#0D0D14] mb-1">
                     Official Business Email
                   </h4>
-                  <a href="mailto:hello@nimradevlabs.com" className="text-sm font-semibold text-[#6C3FFC] hover:underline block">
-                    hello@nimradevlabs.com
-                  </a>
-                  <a href="mailto:nimra.developer.8122005@gmail.com" className="text-xs text-slate-500 hover:underline block mt-0.5">
+                  <a href="mailto:nimra.developer.8122005@gmail.com" className="text-sm font-semibold text-[#6C3FFC] hover:underline block break-all">
                     nimra.developer.8122005@gmail.com
                   </a>
                 </div>
@@ -142,7 +139,7 @@ export default function ContactForm() {
                     Pakistan · PKT (UTC+5)
                   </p>
                   <p className="text-[11px] text-slate-500 font-inter mt-0.5">
-                    Operating Hours: Mon - Sat (9:00 AM - 9:00 PM PKT) · Serving Global & Local Clients
+                    Operating Hours: Fri - Sun (24 Hours Open) · Mon - Thu (9:00 AM - 9:00 PM PKT)
                   </p>
                 </div>
               </div>
