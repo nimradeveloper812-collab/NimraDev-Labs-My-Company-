@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import AboutSection from '../components/sections/About';
 import WhyChooseUs from '../components/sections/WhyChooseUs';
 import Process from '../components/sections/Process';
+import Testimonials from '../components/sections/Testimonials';
+import ContactForm from '../components/sections/ContactForm';
 
 export default function About() {
   useEffect(() => {
@@ -13,6 +15,8 @@ export default function About() {
       <AboutSection />
       <WhyChooseUs />
       <Process />
+      <Testimonials />
+      <ContactForm />
     </div>
   );
 }

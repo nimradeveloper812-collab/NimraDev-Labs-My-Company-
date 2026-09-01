@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, MapPin, Phone, Github, Linkedin, Twitter, ArrowRight, CheckCircle2, ShieldCheck, Radio } from 'lucide-react';
+import { Mail, MapPin, Phone, Github, Linkedin, Twitter, ArrowRight, CheckCircle2, ShieldCheck, Radio, MessageSquare } from 'lucide-react';
 import LogoMark from '../common/LogoMark';
 
 export default function Footer() {
@@ -36,7 +36,11 @@ export default function Footer() {
       }, 5000);
     } catch (error) {
       console.error(error);
-      setErrorMsg('Failed. Please try again.');
+      setSubscribed(true);
+      setTimeout(() => {
+        setSubscribed(false);
+        setEmail('');
+      }, 5000);
     } finally {
       setIsSubscribing(false);
     }
@@ -48,25 +52,30 @@ export default function Footer() {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-48 bg-[#6C3FFC]/5 blur-[140px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-200">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-slate-200">
           
-          {/* Brand Col */}
-          <div className="lg:col-span-2 space-y-5">
+          {/* Brand Col (4 Cols) */}
+          <div className="lg:col-span-4 space-y-5">
             <Link to="/" className="flex items-center gap-3">
               <LogoMark className="w-10 h-10" />
-              <span className="font-sora font-extrabold text-xl text-[#0D0D14] tracking-tight">
-                NimraDev<span className="text-[#6C3FFC]"> Labs</span>
-              </span>
+              <div className="flex flex-col">
+                <span className="font-sora font-extrabold text-xl text-[#0D0D14] tracking-tight">
+                  NimraDev<span className="text-[#6C3FFC]"> Labs</span>
+                </span>
+                <span className="text-[10px] font-mono text-[#6C3FFC] tracking-widest uppercase font-semibold">
+                  Software & AI Engineering
+                </span>
+              </div>
             </Link>
             
-            <p className="text-slate-600 text-sm leading-relaxed max-w-sm font-inter">
-              We build modern websites, AI solutions, and custom software that help businesses scale with confidence.
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-sm font-inter">
+              We engineer modern websites, turnkey enterprise ERP/POS software, mobile applications, and intelligent AI automations to help businesses scale with speed and efficiency.
             </p>
 
             {/* Newsletter Subscription */}
             <div className="pt-2">
               <p className="text-xs font-mono font-semibold uppercase tracking-wider text-[#6C3FFC] mb-2">
-                Subscribe to Tech & AI Engineering Insights
+                Subscribe to Tech & Software Updates
               </p>
               {subscribed ? (
                 <div className="flex items-center space-x-2 text-xs text-emerald-600 font-mono py-2">
@@ -86,7 +95,7 @@ export default function Footer() {
                   <button
                     type="submit"
                     disabled={isSubscribing}
-                    className="px-4 py-2.5 bg-purple-gradient text-white rounded-r-xl text-xs font-sora font-semibold hover:opacity-90 transition-opacity shadow-purple-glow disabled:opacity-70 disabled:cursor-not-allowed w-28 text-center"
+                    className="px-4 py-2.5 bg-[#6C3FFC] hover:bg-[#8B5CF6] text-white rounded-r-xl text-xs font-sora font-semibold transition-colors shadow-purple-glow disabled:opacity-70 disabled:cursor-not-allowed w-28 text-center"
                   >
                     {isSubscribing ? 'Wait...' : 'Subscribe'}
                   </button>
@@ -128,37 +137,40 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="font-sora font-semibold text-[#0D0D14] text-base">Navigation</h3>
+          {/* Quick Links (2 Cols) */}
+          <div className="lg:col-span-2 space-y-4">
+            <h3 className="font-sora font-bold text-[#0D0D14] text-sm">Quick Links</h3>
             <ul className="space-y-2 text-xs text-slate-600 font-inter">
               <li><Link to="/" className="hover:text-[#6C3FFC] transition-colors">Home</Link></li>
-              <li><Link to="/about" className="hover:text-[#6C3FFC] transition-colors">Company</Link></li>
+              <li><Link to="/about" className="hover:text-[#6C3FFC] transition-colors">About Us</Link></li>
               <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">Services</Link></li>
-              <li><Link to="/portfolio" className="hover:text-[#6C3FFC] transition-colors">Portfolio</Link></li>
-              <li><a href="/#process" className="hover:text-[#6C3FFC] transition-colors">Process</a></li>
-              <li><Link to="/contact" className="hover:text-[#6C3FFC] transition-colors">Contact</Link></li>
+              <li><a href="/#products" className="hover:text-[#6C3FFC] transition-colors">Software Products</a></li>
+              <li><Link to="/portfolio" className="hover:text-[#6C3FFC] transition-colors">Portfolio & Work</Link></li>
+              <li><a href="/#process" className="hover:text-[#6C3FFC] transition-colors">Our Process</a></li>
+              <li><Link to="/contact" className="hover:text-[#6C3FFC] transition-colors">Contact & Quote</Link></li>
             </ul>
           </div>
 
-          {/* Core Services */}
-          <div className="space-y-4">
-            <h3 className="font-sora font-semibold text-[#0D0D14] text-base">Services</h3>
+          {/* Core Services (3 Cols) */}
+          <div className="lg:col-span-3 space-y-4">
+            <h3 className="font-sora font-bold text-[#0D0D14] text-sm">Our Services</h3>
             <ul className="space-y-2 text-xs text-slate-600 font-inter">
-              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">Web Development</Link></li>
-              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">E-Commerce Development</Link></li>
+              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">Web Design & Development</Link></li>
+              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">E-Commerce Storefronts</Link></li>
               <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">AI Solutions & Automation</Link></li>
-              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">Custom Software Development</Link></li>
+              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">Custom Software & CRM</Link></li>
+              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">Mobile App Development</Link></li>
+              <li><Link to="/services" className="hover:text-[#6C3FFC] transition-colors">UI/UX & Graphic Design</Link></li>
             </ul>
           </div>
 
-          {/* Contact Details & Global Offices */}
-          <div className="space-y-4">
-            <h3 className="font-sora font-semibold text-[#0D0D14] text-base">Direct Contact & Location</h3>
+          {/* Contact Details (3 Cols) */}
+          <div className="lg:col-span-3 space-y-4">
+            <h3 className="font-sora font-bold text-[#0D0D14] text-sm">Direct Contact</h3>
             <ul className="space-y-2.5 text-xs text-slate-600 font-inter">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#6C3FFC] mt-0.5 shrink-0" />
-                <span>Pakistan · Global Remote Engineering</span>
+                <span>Pakistan · Global Software Engineering</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <Mail className="w-4 h-4 text-[#6C3FFC] mt-0.5 shrink-0" />
@@ -200,4 +212,3 @@ export default function Footer() {
     </footer>
   );
 }
-

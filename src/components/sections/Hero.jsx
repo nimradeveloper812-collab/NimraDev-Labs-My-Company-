@@ -1,17 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Monitor, ShoppingCart, Brain, Settings, ArrowRight, ShieldCheck, Sparkles, PhoneCall, CheckCircle2, MessageCircle, Star } from 'lucide-react';
+import { 
+  Monitor, ShoppingCart, Brain, Settings, ArrowRight, 
+  ShieldCheck, Sparkles, PhoneCall, CheckCircle2, MessageCircle, Star, Award, Layers 
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import LogoMark from '../common/LogoMark';
 
 const bannerServices = [
   { 
-    title: 'Web\nDevelopment', 
+    title: 'Web Design &\nDevelopment', 
     icon: Monitor, 
-    desc: 'High-speed, responsive & modern web apps built to turn visitors into paying clients.' 
+    desc: 'High-speed, responsive & modern web apps built to convert visitors into paying clients.' 
   },
   { 
-    title: 'E-Commerce\nDevelopment', 
+    title: 'E-Commerce\nSolutions', 
     icon: ShoppingCart, 
     desc: 'Scalable online stores with seamless payment gateways, checkout, and inventory sync.' 
   },
@@ -21,17 +24,17 @@ const bannerServices = [
     desc: 'Intelligent AI chatbots, workflow automation, and custom LLM integrations for your operations.' 
   },
   { 
-    title: 'Custom Software\nDevelopment', 
+    title: 'Custom Software\n& ERP Systems', 
     icon: Settings, 
     desc: 'Tailored CRM, ERP, and SaaS architectures crafted specifically for your business model.' 
   },
 ];
 
-const trustBadges = [
-  { label: '99.8% Client Satisfaction', sub: 'Verified Reviews' },
-  { label: '100+ Completed Projects', sub: 'Global & Local Delivery' },
-  { label: '2-3 Weeks MVP Delivery', sub: 'Agile & Fast Turnaround' },
-  { label: 'Pakistan (PKT) & Global Support', sub: '24/7 Direct Engineering' },
+const keyStats = [
+  { value: '500+', label: 'Delivered Projects', sub: 'Global & Pakistan Delivery' },
+  { value: '99.8%', label: 'Client Satisfaction', sub: 'Verified 5-Star Reviews' },
+  { value: '2-3 Wks', label: 'Rapid Turnaround', sub: 'Agile MVP & Production Sprints' },
+  { value: '24/7', label: 'Dedicated Support', sub: 'Direct Engineering SLA' },
 ];
 
 export default function Hero() {
@@ -47,7 +50,7 @@ export default function Hero() {
       <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         
         {/* Main Card Container */}
-        <div className="bg-white/70 backdrop-blur-2xl border border-white/80 rounded-[2.5rem] sm:rounded-[3rem] p-6 sm:p-10 lg:p-14 shadow-[0_20px_80px_-20px_rgba(108,63,252,0.12)]">
+        <div className="bg-white/80 backdrop-blur-2xl border border-white/90 rounded-[2.5rem] sm:rounded-[3rem] p-6 sm:p-10 lg:p-14 shadow-[0_20px_80px_-20px_rgba(108,63,252,0.12)]">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
@@ -66,7 +69,7 @@ export default function Hero() {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#6C3FFC]"></span>
                 </span>
                 <span className="text-xs font-sora font-semibold text-[#0D0D14]">
-                  Accepting New Projects · Local PK & Global
+                  Accepting New Projects · Pakistan & Global Clients
                 </span>
               </div>
 
@@ -77,30 +80,38 @@ export default function Hero() {
                   <h1 className="text-3xl sm:text-4xl lg:text-5xl font-sora font-extrabold text-[#0D0D14] tracking-tight leading-[1.15]">
                     NimraDev <span className="text-[#6C3FFC]">Labs</span>
                   </h1>
-                  <p className="text-xs sm:text-sm font-space font-medium text-[#6C3FFC] tracking-wide mt-1 uppercase">
+                  <p className="text-xs sm:text-sm font-space font-semibold text-[#6C3FFC] tracking-wider mt-1 uppercase">
                     Software & AI Engineering Excellence
                   </p>
                 </div>
               </div>
 
-              {/* Subheadline (Inter & Space Grotesk) with Local + Global Blend */}
+              {/* Subheadline */}
               <p className="text-base sm:text-lg text-slate-600 font-inter leading-relaxed max-w-xl">
-                We build modern high-converting websites, <span className="font-semibold text-[#0D0D14]">AI automations</span>, and custom software that empower businesses to scale with confidence. 
-                <span className="block mt-2 text-slate-500 text-sm sm:text-base">
-                  International SaaS & engineering quality – customized for local Pakistani businesses and global startups with zero technical headaches.
+                We craft intelligent, future-ready <span className="font-semibold text-[#0D0D14]">web applications</span>, <span className="font-semibold text-[#0D0D14]">turnkey ERP/POS software</span>, and <span className="font-semibold text-[#0D0D14]">AI automations</span> that empower businesses to scale with speed and efficiency.
+                <span className="block mt-2 text-slate-500 text-sm">
+                  World-class software engineering with direct technical communication, transparent milestone pricing, and 100% full code ownership.
                 </span>
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto pt-2">
                 <Link
                   to="/contact"
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full font-sora font-bold text-sm text-white bg-[#6C3FFC] hover:bg-[#8B5CF6] shadow-purple-glow hover:shadow-purple-glow-lg transition-all duration-300 transform hover:-translate-y-0.5 text-center cursor-pointer"
                 >
                   <Sparkles className="w-4 h-4" />
-                  <span>Book a Free Discovery Call</span>
+                  <span>Get Free Consultation</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
+
+                <a
+                  href="#products"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-sora font-semibold text-sm text-[#0D0D14] bg-white border border-[#E6E6E6] hover:border-[#6C3FFC]/50 hover:text-[#6C3FFC] shadow-sm transition-all duration-300 text-center"
+                >
+                  <Layers className="w-4 h-4 text-[#6C3FFC]" />
+                  <span>Explore Software Products</span>
+                </a>
 
                 <a
                   href="https://wa.me/923249590859?text=Hello%20NimraDev%20Labs%2C%20I%20would%20like%20to%20discuss%20a%20project."
@@ -109,7 +120,7 @@ export default function Hero() {
                   className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-sora font-semibold text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 hover:bg-emerald-100 transition-all duration-300 text-center"
                 >
                   <MessageCircle className="w-4 h-4 text-emerald-600" />
-                  <span>WhatsApp: Direct Chat</span>
+                  <span>WhatsApp Chat</span>
                 </a>
               </div>
 
@@ -120,7 +131,7 @@ export default function Hero() {
                     <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <span><strong>5.0/5.0</strong> rating by founders & business owners across Pakistan & overseas</span>
+                <span><strong>5.0/5.0</strong> rating by corporate leaders & founders across Pakistan & globally</span>
               </div>
 
             </motion.div>
@@ -150,10 +161,13 @@ export default function Hero() {
                         {service.desc}
                       </p>
                     </div>
-                    <div className="pt-4 mt-2 border-t border-slate-100 flex items-center justify-between text-[11px] font-sora font-semibold text-[#6C3FFC]">
-                      <span>Learn More</span>
+                    <Link 
+                      to="/services"
+                      className="pt-4 mt-2 border-t border-slate-100 flex items-center justify-between text-[11px] font-sora font-semibold text-[#6C3FFC] hover:text-[#8B5CF6]"
+                    >
+                      <span>Explore Service</span>
                       <ArrowRight className="w-3.5 h-3.5" />
-                    </div>
+                    </Link>
                   </div>
                 );
               })}
@@ -161,19 +175,22 @@ export default function Hero() {
 
           </div>
 
-          {/* Bottom Trust Badges Bar */}
+          {/* Bottom Enterprise Stats Counter Bar */}
           <div className="mt-12 pt-8 border-t border-slate-200/80 grid grid-cols-2 md:grid-cols-4 gap-6">
-            {trustBadges.map((badge, idx) => (
-              <div key={idx} className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#F4EFFF] flex items-center justify-center shrink-0 mt-0.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#6C3FFC]" />
+            {keyStats.map((stat, idx) => (
+              <div key={idx} className="flex items-start gap-3.5">
+                <div className="w-10 h-10 rounded-2xl bg-[#F4EFFF] border border-[#E8DAFF] flex items-center justify-center shrink-0 mt-0.5 text-[#6C3FFC]">
+                  <CheckCircle2 className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-sora font-bold text-xs sm:text-sm text-[#0D0D14] leading-snug">
-                    {badge.label}
+                  <h4 className="font-sora font-extrabold text-xl sm:text-2xl text-[#0D0D14] leading-tight">
+                    {stat.value}
                   </h4>
+                  <p className="font-sora font-bold text-xs text-[#6C3FFC]">
+                    {stat.label}
+                  </p>
                   <p className="text-[11px] text-slate-500 font-inter mt-0.5">
-                    {badge.sub}
+                    {stat.sub}
                   </p>
                 </div>
               </div>

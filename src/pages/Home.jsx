@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '../components/sections/Hero';
 import About from '../components/sections/About';
 import ServicesSection from '../components/sections/ServicesSection';
+import SoftwareProducts from '../components/widgets/SoftwareProducts';
 import PortfolioSection from '../components/sections/PortfolioSection';
 import WhyChooseUs from '../components/sections/WhyChooseUs';
 import Process from '../components/sections/Process';
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <About />
       <ServicesSection />
+      <SoftwareProducts />
       <PortfolioSection />
       <WhyChooseUs />
       <Process />

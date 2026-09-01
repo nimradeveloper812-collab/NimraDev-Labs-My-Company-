@@ -1,38 +1,45 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, ShieldCheck, Zap, Users, Code2, Rocket, Award, Globe } from 'lucide-react';
+import { CheckCircle2, ShieldCheck, Zap, Users, Code2, Rocket, Award, Globe, HeartHandshake } from 'lucide-react';
 import LogoMark from '../common/LogoMark';
 
 const pillars = [
   {
-    title: 'Local Trust + Global Standards',
-    description: 'We understand the unique hurdles of Pakistani businesses — payment integrations, local user habits, and cost-efficiency — while writing clean, international-grade code.',
-    icon: Globe,
+    title: 'High-Standard Engineering',
+    description: 'We adhere to clean architecture, automated testing, and international software design principles to build robust digital solutions.',
+    icon: Code2,
   },
   {
-    title: 'Zero Jargon, 100% Results',
-    description: 'No overwhelming tech buzzwords. We speak clear business language, focusing on speed, conversion rates, and measurable ROI for your company.',
-    icon: Zap,
+    title: 'Client-Centric Collaboration',
+    description: 'We speak transparent business language, focusing on speed, measurable ROI, and direct developer communication with no bureaucratic delays.',
+    icon: HeartHandshake,
   },
   {
     title: 'Direct Engineering Access',
-    description: 'Work directly with lead software engineers and UI/UX designers. No middlemen, no lost requirements, and agile turnaround on every sprint.',
+    description: 'Collaborate directly with lead software architects and senior developers. Transparent sprint roadmaps and weekly milestone demos.',
     icon: Users,
   },
   {
-    title: 'Built For Long-Term Scale',
-    description: 'From your first landing page to high-traffic SaaS backends and automated AI workflows, our code is structured for effortless scaling.',
+    title: 'Built For Enterprise Scale',
+    description: 'From your initial MVP launch to high-traffic cloud backends and automated AI pipelines, our systems scale seamlessly.',
     icon: Rocket,
   },
 ];
 
 const checklist = [
   'Transparent milestone pricing with zero hidden fees',
-  'Rapid 2-3 week delivery for custom web & MVPs',
+  'Rapid 2-3 week turnaround for custom MVPs & web portals',
   'Direct WhatsApp & PKT/UTC+5 timezone communication',
-  '100% full IP & source code ownership transferred to you',
+  '100% full IP & source code ownership transferred to client',
   'Enterprise security, SSL encryption, and GDPR/privacy ready',
-  '30-day dedicated post-launch warranty & support included',
+  '30-day dedicated post-launch warranty & SLA support included',
+];
+
+const achievements = [
+  { count: '500+', title: 'Projects Delivered', desc: 'Across Pakistan, UK, UAE & USA' },
+  { count: '99.8%', title: 'Client Satisfaction', desc: 'Long-term corporate partnerships' },
+  { count: '30+', title: 'Engineers & Tech Experts', desc: 'Full-stack, AI, Mobile & UI/UX' },
+  { count: '24/7', title: 'Technical Support', desc: 'Real-time monitoring & maintenance' }
 ];
 
 export default function About() {
@@ -56,20 +63,20 @@ export default function About() {
           >
             <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-[#F8F9FC] border border-[#E6E6E6] shadow-sm">
               <span className="text-xs font-sora font-semibold text-[#6C3FFC] tracking-widest uppercase">
-                Our Story & Mission
+                Who We Are · About Us
               </span>
             </div>
             
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-sora font-bold text-[#0D0D14] tracking-tight leading-tight">
-              Engineering Digital Growth for <span className="text-[#6C3FFC]">Local & Global</span> Visionaries
+              Engineering Digital Growth for <span className="text-[#6C3FFC]">Enterprises & Startups</span>
             </h2>
             
             <p className="text-slate-600 font-inter text-base sm:text-lg leading-relaxed">
-              At <strong>NimraDev Labs</strong>, we founded our software engineering house with a straightforward vision: to give Pakistani business owners, entrepreneurs, and global founders the exact same caliber of high-end software architecture that world-class tech companies rely on — without excessive agency overhead.
+              At <strong>NimraDev Labs</strong>, we are an advanced software and AI engineering house dedicated to building reliable, high-performance, and future-ready technology solutions.
             </p>
             
             <p className="text-slate-600 font-inter text-sm sm:text-base leading-relaxed">
-              Whether you are modernizing a traditional brick-and-mortar business in Pakistan, launching an e-commerce brand, or building a next-generation AI SaaS product, we combine battle-tested technical reliability with conversion-focused design.
+              We empower corporate enterprises, educational institutions, retail chains, and visionary startups with custom web applications, turnkey ERP/POS systems, mobile apps, and AI automations designed to streamline operations and accelerate revenue.
             </p>
 
             {/* Feature Checklist */}
@@ -83,7 +90,7 @@ export default function About() {
             </div>
           </motion.div>
           
-          {/* Right Column: Visual Brand Card (5 Cols) */}
+          {/* Right Column: Visual Brand & Achievement Card (5 Cols) */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -91,35 +98,43 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="lg:col-span-5 flex justify-center"
           >
-            <div className="relative w-full max-w-md aspect-square rounded-[3rem] border-2 border-[#6C3FFC]/20 flex items-center justify-center p-8 overflow-hidden bg-[#F8F9FC] shadow-[0_20px_60px_rgba(108,63,252,0.08)]">
+            <div className="relative w-full max-w-md rounded-[3rem] border-2 border-[#6C3FFC]/20 p-8 overflow-hidden bg-[#F8F9FC] shadow-[0_20px_60px_rgba(108,63,252,0.08)] flex flex-col items-center text-center space-y-6">
               {/* Subtle Grid Pattern */}
               <div className="absolute inset-0 bg-grid-pattern opacity-50"></div>
               
-              <div className="relative z-10 flex flex-col items-center text-center space-y-5">
-                <LogoMark className="w-28 h-28 bg-white border border-[#E8DAFF] shadow-sm rounded-3xl" />
+              <div className="relative z-10 flex flex-col items-center text-center space-y-4">
+                <LogoMark className="w-24 h-24 bg-white border border-[#E8DAFF] shadow-sm rounded-3xl" />
                 
                 <div>
                   <h3 className="text-2xl font-sora font-extrabold text-[#0D0D14] tracking-tight">
                     NimraDev Labs
                   </h3>
                   <p className="text-xs font-mono text-[#6C3FFC] font-semibold uppercase tracking-wider mt-1">
-                    Pakistan · Global Delivery
+                    Software & AI Engineering
                   </p>
                 </div>
                 
                 <p className="text-slate-600 font-inter text-xs leading-relaxed max-w-xs">
-                  We build modern websites, AI solutions, and custom software that help businesses scale with confidence.
+                  Delivering cutting-edge web applications, enterprise ERP/POS software, and intelligent AI automations worldwide.
                 </p>
-                
-                <div className="flex gap-2">
-                  <div className="w-2 h-2 rounded-full bg-[#8B5CF6]/40"></div>
-                  <div className="w-2 h-2 rounded-full bg-[#6C3FFC]"></div>
-                  <div className="w-2 h-2 rounded-full bg-[#8B5CF6]/40"></div>
-                </div>
+              </div>
 
-                <div className="px-5 py-1.5 rounded-full bg-white border border-[#E6E6E6] text-slate-700 font-sora font-semibold text-[11px] shadow-sm">
-                  Reliable · Scalable · High-Converting
-                </div>
+              {/* Achievement Grid inside card */}
+              <div className="relative z-10 grid grid-cols-2 gap-3 w-full pt-2">
+                {achievements.map((item, idx) => (
+                  <div key={idx} className="bg-white p-3 rounded-2xl border border-[#E6E6E6] shadow-sm text-center">
+                    <span className="font-sora font-extrabold text-lg text-[#6C3FFC] block">
+                      {item.count}
+                    </span>
+                    <span className="font-sora font-bold text-[11px] text-[#0D0D14] block leading-tight">
+                      {item.title}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="relative z-10 px-5 py-1.5 rounded-full bg-white border border-[#E6E6E6] text-slate-700 font-sora font-semibold text-[11px] shadow-sm">
+                Enterprise Quality · 100% Code Ownership
               </div>
             </div>
           </motion.div>
@@ -130,10 +145,10 @@ export default function About() {
         <div className="pt-12 border-t border-slate-200">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h3 className="text-2xl font-sora font-bold text-[#0D0D14] mb-3">
-              How Our Team Delivers Reliable Growth
+              Our Core Engineering Values
             </h3>
             <p className="text-slate-600 text-sm">
-              Our engineering philosophy combines technical excellence with direct business value.
+              Our engineering philosophy combines technical excellence with measurable business value.
             </p>
           </div>
 
