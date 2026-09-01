@@ -31,8 +31,8 @@ const bannerServices = [
 ];
 
 const keyStats = [
-  { value: '500+', label: 'Delivered Projects', sub: 'Global & Pakistan Delivery' },
-  { value: '99.8%', label: 'Client Satisfaction', sub: 'Verified 5-Star Reviews' },
+  { value: '5+', label: 'Delivered Projects', sub: 'Global & Pakistan Delivery' },
+  { value: '90%', label: 'Client Satisfaction', sub: 'Verified 5-Star Reviews' },
   { value: '2-3 Wks', label: 'Rapid Turnaround', sub: 'Agile MVP & Production Sprints' },
   { value: '24/7', label: 'Dedicated Support', sub: 'Direct Engineering SLA' },
 ];

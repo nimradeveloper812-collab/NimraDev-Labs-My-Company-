@@ -36,8 +36,8 @@ const checklist = [
 ];
 
 const achievements = [
-  { count: '500+', title: 'Projects Delivered', desc: 'Across Pakistan, UK, UAE & USA' },
-  { count: '99.8%', title: 'Client Satisfaction', desc: 'Long-term corporate partnerships' },
+  { count: '5+', title: 'Projects Delivered', desc: 'Across Pakistan, UK, UAE & USA' },
+  { count: '90%', title: 'Client Satisfaction', desc: 'Long-term corporate partnerships' },
   { count: '30+', title: 'Engineers & Tech Experts', desc: 'Full-stack, AI, Mobile & UI/UX' },
   { count: '24/7', title: 'Technical Support', desc: 'Real-time monitoring & maintenance' }
 ];
